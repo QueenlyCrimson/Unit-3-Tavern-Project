@@ -1,9 +1,11 @@
 import React from 'react'
+import NavBar from './componets/NavBar';
+
 
 function App() {
   return (
     <div className="App">
-      Tavern
+      <NavBar />
     </div>
   );
 }
