@@ -1,10 +1,11 @@
 import React from 'react'
+import Logo from '../assets/logo.png'
 
 const Description = () => {
   return (
-    <div className='w-full bg-white py-16 px-4 text-black'>
+    <div className='w-full bg-grey py-16 px-4 text-black'>
       <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
-        {/* <img /> Tavern Logo*/}
+        <img src={Logo} /> 
         <div>
           <p>THE ULTIMATE SOCIAL MEDIA APP</p>
           <h1>Connect with Like-Minded Individuals Across the World </h1>
