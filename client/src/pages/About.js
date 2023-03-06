@@ -1,11 +1,17 @@
 import React from 'react'
-import Hero from '../components/Hero'
+import AboutCards from '../components/AboutCards'
+import Description from '../components/Description'
+// import AboutCards2 from '../components/'
+
 
 const About = () => {
   return (
-    <div className="text-white">
-      <h1 className="w-full text-3xl font-bold text-center">About</h1>
-      <Hero />
+    <div className='text-white'>
+      <h1 className='w-full text-3xl font-bold text-center'>About Us</h1>
+      <Description />
+      <AboutCards />
+
+      
     </div>
   )
 }
