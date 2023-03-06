@@ -12,13 +12,16 @@ const NavBar = () => {
   }
   return (
     <nav>
-    <div className=' flex justify-between items-center h-24 max-w-[1240px] mx-auto text-white'>
+    <div className='flex justify-between items-center h-24 max-w-[1240px] mx-auto text-white'>
       <h1 className='w-full text-3xl font-bold text-[#e57626]'>Tavern.</h1>
       <ul className='hidden md:flex'>
-        <li className='p-4'><Link to="/home">Home</Link></li>
-        <li className='p-4'><Link to="/makeProfile">Register</Link></li>
-        <li className='p-4'><Link to="/signIn">SignIn</Link></li>
-        <li className='p-4'><Link to="/about">About</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/home">Home</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/makeProfile">Register</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/signIn">Sign In</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/about">About</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/makePost">MakePost</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/updateProfile">Update Profile</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/profile">ProfilePage</Link></li>
       </ul>
 
       <div onClick={handleNav} className='block md:hidden'>

@@ -6,6 +6,9 @@ import MakeProfile from './pages/MakeProfile'
 import MakePost from './components/MakePost'
 import Home from './pages/Home'
 import SignIn from './components/SignIn'
+import UpdateProfile from './components/UpdateProfile'
+import Footer from './components/Footer'
+import ProfilePage from './components/ProfilePage'
 
 function App() {
   return (
@@ -18,8 +21,11 @@ function App() {
           <Route path="signIn" element={<SignIn />} />
           <Route path="about" element={<About />} />
           <Route path="home" element={<Home />} />
+          <Route path="updateProfile" element={<UpdateProfile />} />
+          <Route path="profile" element={<ProfilePage />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   )
 }
