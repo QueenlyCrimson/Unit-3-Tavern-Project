@@ -1,9 +1,9 @@
 import React from "react"
-// import MakePost from "../components/MakePost"
+
 
 const UpdateProfile = () => {
   return (
-    <>
+    <div className="px-4 py-4 h-screen">
       <div>
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
@@ -112,7 +112,7 @@ const UpdateProfile = () => {
                         name="name"
                         id="name"
                         autoComplete="given-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -125,7 +125,7 @@ const UpdateProfile = () => {
                         name="userName"
                         id="userName"
                         autoComplete="family-name"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
                     </div>
 
@@ -138,7 +138,7 @@ const UpdateProfile = () => {
                         name="email"
                         id="email"
                         autoComplete="email"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                     <div className="col-span-6">
@@ -150,7 +150,7 @@ const UpdateProfile = () => {
                         name="password"
                         id="password"
                         autoComplete="password"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-orange-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -168,7 +168,7 @@ const UpdateProfile = () => {
           </div>
         </div>
       </div>
-    </>
+      </div>
   )
 }
 export default UpdateProfile
