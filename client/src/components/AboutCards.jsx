@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 const AboutCards = () => {
   return (
     <div className='w-full py-[10rem] px-4 bg-white text-black'>
-      <div className='max-w-[1240px] mx-auto grid md:grid-cols-4 gap-6'>
+      <div className='text-center text-4xl pb-[2rem]'>
+        <h1>Meet The Developers</h1>
+      </div>
+      <div className='max-w-[1240px] mx-auto grid md:grid-cols-4 gap-6 py-10'>
         <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
           <img className='w-20 h-20 rounded-full mx-auto mt-[-3rem] bg-white' src="https://media.licdn.com/dms/image/D4E03AQEgQjr9B0okLg/profile-displayphoto-shrink_400_400/0/1668631358662?e=1683763200&v=beta&t=6bBhTlpSLX9rxDd4pz_5PLydkVNFqPE4KkFyRNu1ETs" alt='/'/>
           <h2 className='text-xl font-bold text-center pt-3'>Channel Harris</h2>
@@ -54,7 +57,7 @@ const AboutCards = () => {
           <p className='text-center'>Full Stack Developer</p>
           <p className='text-center'>General Assembly</p>
           <div className='py-8 text-center font-medium'>
-            <p>short about snippet</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
           <p className='font-bold text-center py-4'>Backend</p>
           <div className='flex py-3 justify-center'>
@@ -75,7 +78,7 @@ const AboutCards = () => {
           <p className='text-center'>Full Stack Developer</p>
           <p className='text-center'>General Assembly</p>
           <div className='py-8 text-center font-medium'>
-            <p>short about snippet</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
           <p className='font-bold text-center py-4'>Backend</p>
           <div className='flex py-3 justify-center'>
