@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 // import MakePost from './MakePost'
 // import MakeProfile from '../pages/MakeProfile'
 
+
 const NavBar = () => {
   const [nav, setNav] = useState(false)
 
