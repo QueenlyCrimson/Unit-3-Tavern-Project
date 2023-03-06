@@ -20,7 +20,7 @@ function App() {
           <Route path="makePost" element={<MakePost />} />
           <Route path="signIn" element={<SignIn />} />
           <Route path="about" element={<About />} />
-          <Route path="home" element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="updateProfile" element={<UpdateProfile />} />
           <Route path="profile" element={<ProfilePage />} />
         </Routes>

@@ -28,22 +28,22 @@ const MakePost = () => {
   }
 
   return (
-    <div className="m-8 mt-24">
+    <div className="flex-row h-screen m-8 mt-24">
       <h1 className="text-white w-full text-center p-8 text-2xl font-bold">
         Make a Post!
       </h1>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="bg-white rounded-md px-4 py-5 shadow sm:rounded-lg sm:p-6">
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="md:col-span-1">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">
+            <div className="">
+              <h3 className="text-2xl font-medium leading-6 text-orange-500">
                 Hey(username),
               </h3>
               <p className="mt-1 text-sm text-gray-500">
                 Wh
               </p>
             </div>
-            <div className="mt-5 md:col-span-2 md:mt-0">
+            <div className="mt-1 md:col-span-2 md:mt-0">
               <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
@@ -97,7 +97,7 @@ const MakePost = () => {
                         rows={3}
                         className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:py-1.5 sm:text-sm sm:leading-6"
                         placeholder="Whats on your mind!"
-                        defaultValue={''}
+                        defaultValue={' '}
                       />
                 </div>
 
