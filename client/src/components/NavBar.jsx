@@ -17,7 +17,7 @@ const NavBar = () => {
       <ul className='hidden md:flex'>
         <li className='p-4 hover:text-orange-500'><Link to="/home">Home</Link></li>
         <li className='p-4 hover:text-orange-500'><Link to="/makeProfile">Register</Link></li>
-        <li className='p-4 hover:text-orange-500'><Link to="/signIn">Sign In</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/signIn">SignIn</Link></li>
         <li className='p-4 hover:text-orange-500'><Link to="/about">About</Link></li>
         <li className='p-4 hover:text-orange-500'><Link to="/makePost">MakePost</Link></li>
         <li className='p-4 hover:text-orange-500'><Link to="/updateProfile">Update Profile</Link></li>

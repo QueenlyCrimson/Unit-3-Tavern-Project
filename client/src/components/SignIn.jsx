@@ -2,7 +2,7 @@ import { LockClosedIcon } from '@heroicons/react/20/solid'
 
 const SignIn = () => {
   return (
-    <>
+    <div className='h-screen'>
       {/*
         This example requires updating your template:
 
@@ -96,7 +96,7 @@ const SignIn = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
