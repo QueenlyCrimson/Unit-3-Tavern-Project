@@ -9,7 +9,7 @@ const MakeProfile = () => {
 
   let navigate = useNavigate()
 
-  let initalState = {
+  let initialState = {
     name: '',
     userName: '',
     email: '',
@@ -18,7 +18,7 @@ const MakeProfile = () => {
     confirmPassword: ''
   }
 
-  const [formValues, setFormValues] = useState(initalState)
+  const [formValues, setFormValues] = useState(initialState)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -29,7 +29,7 @@ const MakeProfile = () => {
       email: formValues.email,
       password: formValues.password
     })
-    setFormValues(initalState)
+    setFormValues(initialState)
     navigate('signIn')
   }
 
