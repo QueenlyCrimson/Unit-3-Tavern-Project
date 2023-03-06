@@ -3,6 +3,7 @@ import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 import { Link } from "react-router-dom"
 
 
+
 const NavBar = () => {
   const [nav, setNav] = useState(false)
 
