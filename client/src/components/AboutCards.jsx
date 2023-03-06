@@ -1,7 +1,8 @@
 import React from 'react'
-import {AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
+import {AiFillGithub} from 'react-icons/ai'
 import { BsBriefcaseFill } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
+
 const AboutCards = () => {
   return (
     <div className='w-full py-[10rem] px-4 bg-white text-black'>

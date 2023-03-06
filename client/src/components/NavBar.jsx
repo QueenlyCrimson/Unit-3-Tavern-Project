@@ -1,8 +1,7 @@
 import React, {useState} from 'react'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
 import { Link } from "react-router-dom"
-// import MakePost from './MakePost'
-// import MakeProfile from '../pages/MakeProfile'
+
 
 
 const NavBar = () => {
@@ -30,10 +29,10 @@ const NavBar = () => {
       <h1 className='w-full text-3xl font-bold text-[#e57626] m-4'>Tavern.</h1>
 
         <ul className='uppercase p-4 '>
-        <li className='p-4 border-b border-gray-600' border-b><Link to="/home">Home</Link></li>
-        <li className='p-4 border-b border-gray-600'><Link to="/makeProfile">Register</Link></li>
-        <li className='p-4 border-b border-gray-600'><Link to="/signIn">Sign In</Link></li>
-        <li className='p-4'><Link to="/about">About</Link></li>
+        <li className='p-4 border-b border-gray-600 hover:text-orange-500' border-b><Link to="/home">Home</Link></li>
+        <li className='p-4 border-b border-gray-600 hover:text-orange-500'><Link to="/makeProfile">Register</Link></li>
+        <li className='p-4 border-b border-gray-600 hover:text-orange-500'><Link to="/signIn">Sign In</Link></li>
+        <li className='p-4 hover:text-orange-500'><Link to="/about">About</Link></li>
         </ul>
       </div>
 
