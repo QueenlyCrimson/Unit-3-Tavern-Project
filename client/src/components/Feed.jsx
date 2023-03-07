@@ -17,7 +17,8 @@ export default function Feed({ user }) {
   }, [])
 
   return user ? (
-    <div className="grid col-4">
+    
+    <div className="grid col-4 ">
       {posts.map((post) => (
         <div className="card" key={post.id}>
           <h3>{post.title}</h3>
