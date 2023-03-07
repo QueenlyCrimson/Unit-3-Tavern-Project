@@ -32,7 +32,7 @@ const NavBar = () => {
             <h1 className='w-full text-3xl font-bold text-[#e57626] m-4'>Tavern.</h1>
 
             <ul className='uppercase p-4 '>
-              <li className='p-4 border-b border-gray-600 hover:text-orange-500' border-b><Link to="/">Home</Link></li>
+              <li className='p-4 border-b border-gray-600 hover:text-orange-500'><Link to="/">Home</Link></li>
               <li className='p-4 border-b border-gray-600 hover:text-orange-500'><Link to="/makeProfile">Register</Link></li>
               <li className='p-4 border-b border-gray-600 hover:text-orange-500'><Link to="/signIn">Sign In</Link></li>
               <li className='p-4 hover:text-orange-500'><Link to="/about">About</Link></li>
