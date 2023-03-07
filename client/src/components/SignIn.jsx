@@ -1,7 +1,33 @@
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import { SignInUser } from '../services/Auth'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
+<<<<<<< HEAD
 const SignIn = () => {
+=======
+const SignIn = (props) => {
+
+  let initialState = {
+    email: '',
+    password: ''
+  }
+
+  const [formValues, setFormValues] = useState(initialState)
+
+  let navigate = useNavigate()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const payload = await SignInUser(formValues)
+    setFormValues({ email: '', password: '' })
+    props.setUser(payload)
+    navigate('/feed')
+  }
+
+
+
+>>>>>>> 3f57a25536bacc13ace80904a9a4dd67e0b4f0b1
   return (
     <div className='h-screen'>
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -78,6 +104,7 @@ const SignIn = () => {
             <div>
               <button
                 type="submit"
+                onSubmit={handleSubmit}
                 className="group relative flex w-full justify-center rounded-md bg-orange-500 py-2 px-3 text-sm font-semibold text-white hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
