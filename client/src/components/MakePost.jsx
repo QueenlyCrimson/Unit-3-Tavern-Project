@@ -28,13 +28,14 @@ const MakePost = () => {
   }
 
   return (
-    <div className="m-8 mt-24 h-screen">
+    <div className='grid justify-center'>
+    <div className="m-8 h-screen max-w-md justify-center">
       <h1 className="text-white w-full text-center p-8 text-2xl font-bold">
         Make a Post!
       </h1>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className=" py-12 px-4  space-y-6">
         <div className="bg-white rounded-md px-4 py-5 shadow sm:rounded-lg sm:p-6">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid gap-6">
             <div className="md:col-span-1">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 Hey {formState.userName},
@@ -43,9 +44,11 @@ const MakePost = () => {
                 Wh
               </p>
             </div>
-            <div className="mt-5 md:col-span-2 md:mt-0">
-              <div className="grid grid-cols-6 gap-6">
-                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+
+            <div className="mt-5 md:mt-0">
+              <div className="grid gap-6">
+              <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+
                   <label
                     htmlFor="img"
                     className="block text-sm font-medium text-gray-700"
@@ -106,6 +109,7 @@ const MakePost = () => {
           </div>
         </div>
 
+      
         <div className="flex justify-center">
           <Link to={'/'}>
             <button
@@ -117,13 +121,14 @@ const MakePost = () => {
           </Link>
           <button
             type="submit"
-            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            className="ml-3 rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
           >
             Share
           </button>
         </div>
       </form>
     </div>
+  </div>
   )
 }
 
