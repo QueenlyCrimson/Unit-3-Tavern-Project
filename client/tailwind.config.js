@@ -2,7 +2,13 @@
 module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily: {
+				Glock: ["Gloock", "serif"],
+				Crisis: ["Climate Crisis", "cursive"],
+				Playfair: ['Playfair Display', 'serif'],
+			},
+		},
 	},
 	plugins: [],
 }

@@ -30,6 +30,11 @@ function App() {
     }
   }, [])
 
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+
   return (
     <div className="App">
       <NavBar />

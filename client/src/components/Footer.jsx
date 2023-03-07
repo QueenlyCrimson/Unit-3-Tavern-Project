@@ -1,16 +1,16 @@
 const Footer = () => {
 return (
-<footer class="sm:p-6 bg-black">
+<footer class="sm:p-6 bg-orange-500">
     <div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
             <a href="https://flowbite.com/" class="flex items-center">
-            <h1 className='w-full text-3xl font-bold text-orange-500'>Tavern.</h1>
+            <h1 className='w-full text-3xl font-bold'>Tavern.</h1>
             </a>
         </div>
         <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
-                <ul class="text-gray-600 dark:text-gray-400">
+                <ul class="text-gray-900 dark:text-gray-400">
                     <li class="mb-4">
                         <a href="https://flowbite.com/" class="hover:underline hover:text-orange-500">Flowbite</a>
                     </li>

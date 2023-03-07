@@ -28,24 +28,26 @@ const MakePost = () => {
   }
 
   return (
-    <div className="flex-row h-screen m-8 mt-24">
+    <div className='grid justify-center'>
+    <div className="m-8 h-screen max-w-md justify-center">
       <h1 className="text-white w-full text-center p-8 text-2xl font-bold">
         Make a Post!
       </h1>
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className=" py-12 px-4  space-y-6">
         <div className="bg-white rounded-md px-4 py-5 shadow sm:rounded-lg sm:p-6">
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="">
-              <h3 className="text-2xl font-medium leading-6 text-orange-500">
+            <div className="md:col-span-1">
+              <h3 className="text-lg font-medium leading-6 text-gray-900">
                 Hey(username),
               </h3>
               <p className="mt-1 text-sm text-gray-500">
                 Wh
               </p>
             </div>
-            <div className="mt-1 md:col-span-2 md:mt-0">
+            <div className="mt-5 md:col-span-2 md:mt-0">
               <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+
                   <label
                     htmlFor="img"
                     className="block text-sm font-medium text-gray-700"
@@ -53,22 +55,22 @@ const MakePost = () => {
                     Image
                   </label>
                   <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
-                      <div className="space-y-1 text-center">
-                        <svg
-                          className="mx-auto h-12 w-12 text-gray-400"
-                          stroke="currentColor"
-                          fill="none"
-                          viewBox="0 0 48 48"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                            strokeWidth={2}
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                        <div>
+                    <div className="space-y-1 text-center">
+                      <svg
+                        className="mx-auto h-12 w-12 text-gray-400"
+                        stroke="currentColor"
+                        fill="none"
+                        viewBox="0 0 48 48"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                          strokeWidth={2}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <div>
                         <div className="flex text-sm text-gray-600">
                           <label
                             htmlFor="file-upload"
@@ -97,7 +99,7 @@ const MakePost = () => {
                         rows={3}
                         className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:py-1.5 sm:text-sm sm:leading-6"
                         placeholder="Whats on your mind!"
-                        defaultValue={' '}
+                        defaultValue={''}
                       />
                 </div>
               </div>
@@ -105,6 +107,7 @@ const MakePost = () => {
           </div>
         </div>
 
+      
         <div className="flex justify-center">
           <Link to={'/'}>
             <button
@@ -116,13 +119,14 @@ const MakePost = () => {
           </Link>
           <button
             type="submit"
-            className="ml-3 inline-flex justify-center rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            className="ml-3 rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
           >
             Share
           </button>
         </div>
       </form>
     </div>
+  </div>
   )
 }
 
