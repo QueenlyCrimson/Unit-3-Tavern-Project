@@ -17,11 +17,18 @@ const SignIn = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
+    console.log(payload)
     setFormValues({ email: '', password: '' })
     props.setUser(payload)
     navigate('/feed')
   }
 
+  const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormValues((prevState) => (
+      { ...prevState, [name]: value }
+    ))
+  }
 
 
   return (
@@ -44,7 +51,7 @@ const SignIn = (props) => {
               </a>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6" action="#" method="GET">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
@@ -55,6 +62,8 @@ const SignIn = (props) => {
                   id="email-address"
                   name="email"
                   type="email"
+                  value={formValues.email}
+                  onChange={handleChange}
                   autoComplete="email"
                   required
                   className="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-orange-400 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -69,6 +78,8 @@ const SignIn = (props) => {
                   id="password"
                   name="password"
                   type="password"
+                  value={formValues.password}
+                  onChange={handleChange}
                   autoComplete="current-password"
                   required
                   className="relative block w-full rounded-b-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-orange-400 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -100,7 +111,8 @@ const SignIn = (props) => {
             <div>
               <button
                 type="submit"
-                onSubmit={handleSubmit}
+                onClick={handleSubmit}
+                a href='/feed'
                 className="group relative flex w-full justify-center rounded-md bg-orange-500 py-2 px-3 text-sm font-semibold text-white hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">

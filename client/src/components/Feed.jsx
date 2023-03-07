@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export default function Feed({ user }) {
 
   const [posts, setPosts] = useState([])
-
+  console.log('user is', user)
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function Feed({ user }) {
       setPosts(data)
     }
     handlePosts()
-  }, [])
+  }, [user])
 
   return user ? (
     <div className="grid col-4">
@@ -24,7 +24,7 @@ export default function Feed({ user }) {
           <div>
             <img src={post.image} alt="post" />
           </div>
-          <p>{post.body.substring(0, 80)}...</p>
+          <p>{post.body}...</p>
         </div>
       ))}
     </div>
