@@ -5,7 +5,6 @@ export const SignInUser = async (data) => {
     const res = await Client.post('auth/login', data)
     // Set the current signed in users token to localStorage
     localStorage.setItem('token', res.data.token)
-    console.log(res.data.data)
     return res.data.data
 
   } catch (error) {
