@@ -3,9 +3,6 @@ import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-<<<<<<< HEAD
-const SignIn = () => {
-=======
 const SignIn = (props) => {
 
   let initialState = {
@@ -27,7 +24,6 @@ const SignIn = (props) => {
 
 
 
->>>>>>> 3f57a25536bacc13ace80904a9a4dd67e0b4f0b1
   return (
     <div className='h-screen'>
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -48,7 +44,7 @@ const SignIn = (props) => {
               </a>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form className="mt-8 space-y-6">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
@@ -95,7 +91,7 @@ const SignIn = (props) => {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-white hover:text-orange-500">
+                <a href="" className="font-medium text-white hover:text-orange-500">
                   Forgot your password?
                 </a>
               </div>

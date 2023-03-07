@@ -1,5 +1,5 @@
 const ProfilePage = () => {
-  return (
+return (
     <div className='flex-row-reverse w-screen h-screen'>
         <div className='w-[750px] h-screen bg-white mx-auto my-auto rounded-2xl overflow-hidden'>
             <div className=''>
@@ -29,7 +29,7 @@ const ProfilePage = () => {
             </div>
         </div>
     </div>
-  )
+)
 }
 
 export default ProfilePage

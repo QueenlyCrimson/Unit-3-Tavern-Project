@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { GetPosts } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
 
-export default function Feed({ user }) {
+function Feed({ user }) {
 
   const [posts, setPosts] = useState([])
 
@@ -35,3 +35,4 @@ export default function Feed({ user }) {
     </div>
   )
 }
+export default Feed
