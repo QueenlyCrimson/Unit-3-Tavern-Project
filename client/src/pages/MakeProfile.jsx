@@ -1,7 +1,42 @@
 import React from "react"
+import { RegisterUser } from '../services/Auth'
+import { useNavigate } from 'react-router-dom'
+import { useState } from "react"
+
 // import MakePost from "../components/MakePost"
 
 const MakeProfile = () => {
+
+  let navigate = useNavigate()
+
+  let initialState = {
+    name: '',
+    userName: '',
+    email: '',
+    profilePic: '',
+    password: '',
+    confirmPassword: ''
+  }
+
+  const [formValues, setFormValues] = useState(initialState)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await RegisterUser({
+      name: formValues.name,
+      userName: formValues.userName,
+      img: formValues.img,
+      email: formValues.email,
+      password: formValues.password
+    })
+    setFormValues(initialState)
+    navigate('signIn')
+  }
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
+
   return (
     <div className="px-4 py-3 h-screen">
       <div>
@@ -59,7 +94,7 @@ const MakeProfile = () => {
                             className="relative cursor-pointer rounded-md bg-white font-medium text-[#e57626] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#c66c2c] focus-within:ring-offset-2 hover:text-[#e99253]"
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                            <input id="file-upload" name="profilePic" type="file" className="sr-only" value={formValues.img} onChange={handleChange} />
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
@@ -99,7 +134,7 @@ const MakeProfile = () => {
             </div>
           </div>
           <div className="mt-5 md:col-span-2 md:mt-0">
-            <form action="#" method="POST">
+            <form action="#" method="POST" onSubmit={handleSubmit}>
               <div className="overflow-hidden shadow sm:rounded-md">
                 <div className="bg-white px-4 py-5 sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
@@ -111,6 +146,8 @@ const MakeProfile = () => {
                         type="text"
                         name="name"
                         id="name"
+                        value={formValues.name}
+                        onChange={handleChange}
                         autoComplete="given-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
@@ -124,6 +161,8 @@ const MakeProfile = () => {
                         type="text"
                         name="userName"
                         id="userName"
+                        value={formValues.userName}
+                        onChange={handleChange}
                         autoComplete="family-name"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
@@ -137,6 +176,8 @@ const MakeProfile = () => {
                         type="text"
                         name="email"
                         id="email"
+                        value={formValues.email}
+                        onChange={handleChange}
                         autoComplete="email"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
@@ -149,6 +190,22 @@ const MakeProfile = () => {
                         type="text"
                         name="password"
                         id="password"
+                        value={formValues.password}
+                        onChange={handleChange}
+                        autoComplete="password"
+                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
+                      />
+                    </div>
+                    <div className="col-span-6">
+                      <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                        Confirm Password
+                      </label>
+                      <input
+                        type="text"
+                        name="confirmPassword"
+                        id="password"
+                        value={formValues.confirmPassword}
+                        onChange={handleChange}
                         autoComplete="password"
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
@@ -168,7 +225,7 @@ const MakeProfile = () => {
           </div>
         </div>
       </div>
-      </div>
+    </div>
   )
 }
 export default MakeProfile
