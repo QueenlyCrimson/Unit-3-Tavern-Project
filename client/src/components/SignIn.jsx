@@ -102,7 +102,7 @@ const SignIn = (props) => {
               </div>
 
               <div className="text-sm">
-                <a href="" className="font-medium text-white hover:text-orange-500">
+                <a href="/forgotPassword" className="font-medium text-white hover:text-orange-500">
                   Forgot your password?
                 </a>
               </div>
