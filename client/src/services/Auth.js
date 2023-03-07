@@ -13,7 +13,7 @@ export const SignInUser = async (data) => {
 
 export const RegisterUser = async (data) => {
   try {
-    const res = await Client.post('/auth/register', data)
+    const res = await Client.post('http://localhost:3001/api/auth/register', data)
     return res.data
   } catch (error) {
     throw error
