@@ -30,9 +30,14 @@ export default function Feed({ user }) {
       ))}
     </div>
   ) : (
-    <div className="protected">
-      <h3>Oops! You must be signed in to do that!</h3>
-      <button onClick={() => navigate('/signin')}>Sign In</button>
+    <div className='h-[40rem]'>
+      <div className="protected grid  items-center justify-center  px-4 py-[10rem] sm:px-6 lg:px-8">
+        <div className='rounded-md overflow-hidden border w-full text-center bg-white py-[3rem] mx-3 md:mx-0 lg:mx-0'>
+          <h3 className='text-5xl pb-4 text-orange-500 font-bold font-Playfair'>Ooops!</h3>
+          <h3 className='text-2xl'>You must be signed in to do that!</h3>
+        </div>
+          <button className=' w-full justify-center rounded-md mx-3 md:mx-0 lg:mx-0 text-xl bg-orange-500 mt-4 py-2 px-3' onClick={() => navigate('/signin')}>Sign In</button>
+      </div>
     </div>
   )
 }

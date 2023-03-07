@@ -6,6 +6,7 @@ module.exports = {
 			fontFamily: {
 				Glock: ["Gloock", "serif"],
 				Crisis: ["Climate Crisis", "cursive"],
+				Playfair: ['Playfair Display', 'serif'],
 			},
 		},
 	},
