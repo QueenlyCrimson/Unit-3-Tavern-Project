@@ -44,11 +44,9 @@ const MakePost = () => {
                 Wh
               </p>
             </div>
-
-            <div className="mt-5 md:mt-0">
+            <div className="mt-5 md:col-span-2 md:mt-0">
               <div className="grid gap-6">
-              <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-
+                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                   <label
                     htmlFor="img"
                     className="block text-sm font-medium text-gray-700"
