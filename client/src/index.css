@@ -5,6 +5,10 @@
 body{
   background-color: #353131;
 }
-/* .p-4{
-width: 85px;
-} */
+.profilePageCard img{
+width: 200px;
+}
+.profilePageCard{
+  display: flex;
+  flex-wrap: wrap;
+}
