@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 function Feed({ user }) {
 
   const [posts, setPosts] = useState([])
-  console.log('user is', user)
+  console.log('post is', posts)
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -20,11 +20,11 @@ function Feed({ user }) {
     <div className="grid col-4">
       {posts.map((post) => (
         <div className="card" key={post.id}>
-          <h3>{post.title}</h3>
+          <h3>{post.userName}</h3>
           <div>
-            <img src={post.image} alt="post" />
+            <img src={post.img} alt="post" />
           </div>
-          <p>{post.body}...</p>
+          <p>{post.content}...</p>
         </div>
       ))}
     </div>
