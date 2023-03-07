@@ -30,7 +30,7 @@ const MakeProfile = () => {
       password: formValues.password
     })
     setFormValues(initialState)
-    navigate('signIn')
+    navigate('/signIn')
   }
 
   const handleChange = (e) => {
@@ -50,7 +50,7 @@ const MakeProfile = () => {
             </div>
           </div>
           <div className="mt-5 md:col-span-2 md:mt-0">
-            <form action="#" method="POST">
+            <form action="#">
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
 
