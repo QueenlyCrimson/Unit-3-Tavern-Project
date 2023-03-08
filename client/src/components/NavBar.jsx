@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import { Link } from "react-router-dom"
+import SignInButton from './SignInButton'
 
 
 
-const NavBar = () => {
+const NavBar = ({ user, handleLogOut }) => {
   const [nav, setNav] = useState(false)
 
   const handleNav = () => {
@@ -17,7 +18,7 @@ const NavBar = () => {
         <ul className='hidden md:flex'>
           <li className='p-4 hover:text-orange-500'><Link to="/">Home</Link></li>
           <li className='p-4 hover:text-orange-500'><Link to="/makeProfile">Register</Link></li>
-          <li className='p-4 hover:text-orange-500'><Link to="/signIn">SignIn</Link></li>
+          <SignInButton user={user} handleLogOut={handleLogOut} />
           <li className='p-4 hover:text-orange-500'><Link to="/about">About</Link></li>
           <li className='p-4 hover:text-orange-500'><Link to="/makePost">MakePost</Link></li>
           <li className='p-4 hover:text-orange-500'><Link to="/updateProfile">Update Profile</Link></li>

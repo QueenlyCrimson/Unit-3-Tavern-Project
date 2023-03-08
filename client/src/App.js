@@ -1,21 +1,25 @@
-import React from 'react'
-import NavBar from './components/NavBar'
-import About from './pages/About'
-import { Route, Routes } from 'react-router-dom'
-import MakeProfile from './pages/MakeProfile'
-import MakePost from './components/MakePost'
-import Home from './pages/Home'
-import { useState, useEffect } from 'react'
-import SignIn from './components/SignIn'
-import UpdateProfile from './components/UpdateProfile'
-import Footer from './components/Footer'
-import ProfilePage from './pages/ProfilePage'
-import Feed from './components/Feed'
-import { CheckSession } from './services/Auth'
+
+import React from "react";
+import NavBar from "./components/NavBar";
+import About from "./pages/About";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import MakeProfile from "./pages/MakeProfile";
+import MakePost from "./components/MakePost";
+import Home from "./pages/Home";
+import { useState, useEffect } from "react";
+import SignIn from "./components/SignIn";
+import UpdateProfile from "./components/UpdateProfile";
+import Footer from "./components/Footer";
+import ProfilePage from "./components/ProfilePage";
+import Feed from "./components/Feed";
+import { CheckSession } from "./services/Auth";
 import ForgotPassword from './pages/ForgotPassword'
+
 
 function App() {
   const [user, setUser] = useState(null)
+
+  const navigate = useNavigate();
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -32,13 +36,16 @@ function App() {
   }, [])
 
   const handleLogOut = () => {
-    setUser(null)
-    localStorage.clear()
-  }
+
+    setUser(null);
+    localStorage.clear();
+    navigate("/");
+  };
+
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
           <Route path="makeProfile" element={<MakeProfile />} />
