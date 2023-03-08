@@ -11,7 +11,6 @@ const MakePost = ({ user }) => {
     userName: userName,
     content: '',
     img: '',
-    likeCount: '',
     userId: sessionStorage.getItem('user')
   }
 
@@ -24,7 +23,7 @@ const MakePost = ({ user }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (sessionStorage.getItem('user')) {
-      // await Post.post('/api/coaster', formState)
+      
       setFormState(initialState)
       navigate('/')
     }
@@ -44,7 +43,7 @@ const MakePost = ({ user }) => {
                   Hey {formState.userName},
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
-                  Wh
+                  Would you like to make a post?
                 </p>
               </div>
               <div className="mt-5 md:col-span-2 md:mt-0">
@@ -79,7 +78,7 @@ const MakePost = ({ user }) => {
                               className="relative cursor-pointer rounded-md bg-white font-medium text-[#e57626] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#c66c2c] focus-within:ring-offset-2 hover:text-[#e99253]"
                             >
                               <span>Upload a file</span>
-                              <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+                              <input id="file-upload" name="file-upload" type="file" className="sr-only" onChange={handleChange} onSubmit={handleSubmit} />
                             </label>
                             <p className="pl-1">or drag and drop</p>
                           </div>
@@ -99,6 +98,8 @@ const MakePost = ({ user }) => {
                       id="about"
                       name="about"
                       rows={3}
+                      onChange={handleChange}
+                      onSubmit={handleSubmit}
                       className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:py-1.5 sm:text-sm sm:leading-6"
                       placeholder="Whats on your mind!"
                       defaultValue={''}
