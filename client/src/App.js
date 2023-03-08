@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from './components/NavBar'
 import About from './pages/About'
-import { Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import MakeProfile from './pages/MakeProfile'
 import MakePost from './components/MakePost'
 import Home from './pages/Home'
@@ -16,6 +16,8 @@ import ForgotPassword from './pages/ForgotPassword'
 
 function App() {
   const [user, setUser] = useState(null)
+
+  const navigate = useNavigate()
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -34,11 +36,12 @@ function App() {
   const handleLogOut = () => {
     setUser(null)
     localStorage.clear()
+    navigate('/')
   }
 
   return (
     <div className="App">
-      <NavBar />
+      <NavBar user={user} handleLogOut={handleLogOut} />
       <main>
         <Routes>
           <Route path="makeProfile" element={<MakeProfile />} />

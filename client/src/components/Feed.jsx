@@ -18,7 +18,6 @@ function Feed({ user }) {
   }, [user])
 
   return user ? (
-
     <div className="grid ">
       {posts.map((post) => (
         <div className="rounded overflow-hidden border w-full my-4 lg:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0" key={post.id}>
