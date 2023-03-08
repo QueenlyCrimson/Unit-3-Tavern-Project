@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { GetPosts } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 function Feed({ user }) {
 
@@ -18,7 +19,6 @@ function Feed({ user }) {
   }, [user])
 
   return user ? (
-
     <div className="grid ">
       {posts.map((post) => (
         <div className="rounded overflow-hidden border w-full my-4 lg:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0" key={post.id}>
@@ -55,12 +55,11 @@ function Feed({ user }) {
                 <span className='font-medium mr-2'>{post.userName}</span>{post.content}
               </div>
             </div>
-            <div className='text-sm mb-2 text-gray-400 cursor-pointer font-medium'>View all (comment count) comments</div>
+            <Link to={'/post/comments'}><div className='text-sm mb-2 text-gray-400 cursor-pointer font-medium'>View all (comment count) comments</div></Link>
             <div className='mb-2'>
               <div className='mb-2 text-sm'>
                 {/* section where 1st two comments are being shown replace with comment username and comment content */}
                 {/* need comment component with back button to post that maps all comments for that post */}
-                <p><span className='font-medium mr-2'>{post.userName}</span>{post.content}</p>
                 <p><span className='font-medium mr-2'>{post.userName}</span>{post.content}</p>
               </div>
 

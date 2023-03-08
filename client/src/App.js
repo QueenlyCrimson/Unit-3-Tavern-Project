@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import ProfilePage from "./components/ProfilePage";
 import Feed from "./components/Feed";
 import { CheckSession } from "./services/Auth";
+import ViewComments from "./components/ViewComments";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -43,6 +44,7 @@ function App() {
           <Route path="makeProfile" element={<MakeProfile />} />
           <Route path="makePost" element={<MakePost user={user}/>} />
           <Route path="signIn" element={<SignIn setUser={setUser} />} />
+          <Route path="post/comments" element={<ViewComments />} />
           <Route path="about" element={<About />} />
           <Route path="/feed" element={<Feed user={user} />} />
           <Route index element={<Home />} />
