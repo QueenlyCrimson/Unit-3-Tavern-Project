@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { GetPostsByUser } from '../services/PostServices'
+import { GetPosts, GetPostsByUser } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -13,7 +13,8 @@ const userId = localStorage.getItem('userId')
 
     // const [userId, setuserId] = useState([])
     const handlePosts = async () => {
-    const data = await GetPostsByUser(userId)
+    // const data = await GetPostsByUser(userId)
+    const data = await GetPosts()
     // console.log(data)
     setPosts(data)
 }
