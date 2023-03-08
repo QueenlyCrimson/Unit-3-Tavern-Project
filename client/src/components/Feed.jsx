@@ -55,7 +55,7 @@ function Feed({ user }) {
                 <span className='font-medium mr-2'>{post.userName}</span>{post.content}
               </div>
             </div>
-            <Link to={'/post/comments'}><div className='text-sm mb-2 text-gray-400 cursor-pointer font-medium'>View all (comment count) comments</div></Link>
+            <Link to={'/post/comments'}><div className='text-sm mb-2 text-gray-400 cursor-pointer font-medium  hover:text-orange-500'>View all (comment count) comments</div></Link>
             <div className='mb-2'>
               <div className='mb-2 text-sm'>
                 {/* section where 1st two comments are being shown replace with comment username and comment content */}
