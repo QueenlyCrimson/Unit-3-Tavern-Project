@@ -17,8 +17,6 @@ import ForgotPassword from './pages/ForgotPassword'
 function App() {
   const [user, setUser] = useState(null)
 
- 
-
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
@@ -47,7 +45,7 @@ function App() {
           <Route path="makePost" element={<MakePost user={user} />} />
           <Route path="signIn" element={<SignIn setUser={setUser} />} />
           <Route path="about" element={<About />} />
-          <Route path="/feed" element={<Feed user={user} />} />
+          <Route path="feed" element={<Feed user={user} />} />
           <Route index element={<Home />} />
           <Route path="updateProfile" element={<UpdateProfile />} />
           <Route path="profile" element={<ProfilePage user={user} />} />
