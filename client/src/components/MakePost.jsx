@@ -23,7 +23,7 @@ const MakePost = ({ user }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (sessionStorage.getItem('user')) {
-      // await Post.post('/api/coaster', formState)
+      
       setFormState(initialState)
       navigate('/')
     }

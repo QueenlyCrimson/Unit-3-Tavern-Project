@@ -5,7 +5,9 @@ export const SignInUser = async (data) => {
     const res = await Client.post('auth/login', data)
     // Set the current signed in users token to localStorage
     localStorage.setItem('token', res.data.token)
-    const userInfo = await Client.get(`user/get_user/by_password/${res.data.data.password}`)
+    const userInfo = await Client.get(
+      `user/get_user/by_password/${res.data.data.password}`
+    )
     localStorage.setItem('userId', userInfo.data.id)
     localStorage.setItem('name', userInfo.data.name)
     localStorage.setItem('userName', userInfo.data.userName)
@@ -18,7 +20,7 @@ export const SignInUser = async (data) => {
 
 export const RegisterUser = async (data) => {
   try {
-    const res = await Client.post('http://localhost:3001/api/auth/register', data)
+    const res = await Client.post('auth/register', data)
     return res.data
   } catch (error) {
     throw error
@@ -34,4 +36,3 @@ export const CheckSession = async () => {
     throw error
   }
 }
-
