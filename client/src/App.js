@@ -21,6 +21,7 @@ function App() {
     setUser(user);
     //If a token exists, sends token to localStorage to persist logged in user
   };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     // Check if token exists before requesting to validate the token
@@ -40,7 +41,7 @@ function App() {
       <main>
         <Routes>
           <Route path="makeProfile" element={<MakeProfile />} />
-          <Route path="makePost" element={<MakePost />} />
+          <Route path="makePost" element={<MakePost user={user}/>} />
           <Route path="signIn" element={<SignIn setUser={setUser} />} />
           <Route path="about" element={<About />} />
           <Route path="/feed" element={<Feed user={user} />} />
