@@ -12,6 +12,7 @@ export const GetPosts = async () => {
 export const GetPostsByUser = async () => {
   try {
     const res = await Client.get('/post/:user_id')
+    console.log(res.data)
     return res.data
   } catch (error) {
     throw error

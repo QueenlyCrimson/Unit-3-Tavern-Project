@@ -3,20 +3,21 @@ import { GetPostsByUser } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
 
 function ProfilePage ({ user }) {
-
+console.log(user)
     const [posts, setPosts] = useState([])
     console.log('post is', posts)
     let navigate = useNavigate()
 
+    const handlePosts = async () => {
+    const data = await GetPostsByUser()
+    console.log(data)
+    setPosts(data)
+}
 
     useEffect(() => {
-        const handlePosts = async () => {
-        const data = await GetPostsByUser()
-        setPosts(data)
-    }
     handlePosts()
-})
-return (
+}, [user])
+return posts ? (
     <div className='flex-row-reverse w-screen h-screen'>
         <div className='w-[1000px] h-screen bg-white mx-auto my-auto rounded-2xl overflow-hidden'>
             <div className=''>
@@ -31,7 +32,6 @@ return (
                 <div className="grid col-4">
                     {posts.map((post) => (
                         <div className="profilePageCard" key={post.id}>
-                            {/* <h3>{post.userName}</h3> */}
                         <div>
             <img src={post.img} alt="post" className='flex'/>
             </div>
@@ -41,6 +41,10 @@ return (
     </div>
             </div>
         </div>
+    </div>
+) :(
+    <div>
+        <h3>TEST!</h3>
     </div>
 )
 }

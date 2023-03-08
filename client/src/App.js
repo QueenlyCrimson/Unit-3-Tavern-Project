@@ -47,7 +47,7 @@ function App() {
           <Route path="/feed" element={<Feed user={user} />} />
           <Route index element={<Home />} />
           <Route path="updateProfile" element={<UpdateProfile />} />
-          <Route path="profile" element={<ProfilePage />} />
+          <Route path="profile" element={<ProfilePage user={user} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
         </Routes>
       </main>
