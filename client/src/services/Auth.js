@@ -10,7 +10,7 @@ export const SignInUser = async (data) => {
     localStorage.setItem('name', userInfo.data.name)
     localStorage.setItem('userName', userInfo.data.userName)
 
-    return userInfo
+    return res.data.data
   } catch (error) {
     throw error
   }
