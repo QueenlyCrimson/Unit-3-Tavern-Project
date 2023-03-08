@@ -9,9 +9,9 @@ export const GetPosts = async () => {
   }
 }
 
-export const GetPostsByUser = async () => {
+export const GetPostsByUser = async (data) => {
   try {
-    const res = await Client.get('/post/:user_id')
+    const res = await Client.get(`post/post/${data}`)
     console.log(res.data)
     return res.data
   } catch (error) {

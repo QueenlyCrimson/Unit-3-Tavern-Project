@@ -3,7 +3,9 @@ import { GetPosts } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 
-function Feed({ user }) {
+
+
+export default function Feed({ user }) {
 
   const [posts, setPosts] = useState([])
 
@@ -87,4 +89,3 @@ function Feed({ user }) {
     </div>
   )
 }
-export default Feed
