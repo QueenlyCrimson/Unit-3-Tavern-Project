@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import SignIn from "./components/SignIn";
 import UpdateProfile from "./components/UpdateProfile";
 import Footer from "./components/Footer";
-import ProfilePage from "./components/ProfilePage";
+import ProfilePage from "./pages/ProfilePage";
 import Feed from "./components/Feed";
 import { CheckSession } from "./services/Auth";
 import ForgotPassword from './pages/ForgotPassword'
