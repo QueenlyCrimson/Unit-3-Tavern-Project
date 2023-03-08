@@ -86,14 +86,3 @@ function Feed({ user }) {
   )
 }
 export default Feed
-
-
-
-
-
-
-
-
-
-
-

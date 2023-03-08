@@ -51,7 +51,7 @@ const SignIn = (props) => {
               </a>
             </p>
           </div>
-          <form className="mt-8 space-y-6" action="#" method="GET">
+          <form className="mt-8 space-y-6">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
@@ -102,7 +102,7 @@ const SignIn = (props) => {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium text-white hover:text-orange-500">
+                <a href="/forgotPassword" className="font-medium text-white hover:text-orange-500">
                   Forgot your password?
                 </a>
               </div>
@@ -112,7 +112,6 @@ const SignIn = (props) => {
               <button
                 type="submit"
                 onClick={handleSubmit}
-                a href='/feed'
                 className="group relative flex w-full justify-center rounded-md bg-orange-500 py-2 px-3 text-sm font-semibold text-white hover:bg-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
