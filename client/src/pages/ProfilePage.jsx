@@ -40,9 +40,9 @@ return posts ? (
 </svg>
 
                 <div className='border mt-[30px]'></div>
-                <div className="grid grid-cols-3 px-1">
+                <div className="grid grid-cols-3 px-1 snap-y">
                     {posts.map((post) => (
-                        <div className="flex-row py-5 hidden w-100 lg:flex" key={post.id}>
+                        <div className="flex-nowrap py-5 hidden w-100 lg:flex" key={post.id}>
                         <div>
             <img className='flex px-4' src={post.img} alt="post"/>
             </div>
