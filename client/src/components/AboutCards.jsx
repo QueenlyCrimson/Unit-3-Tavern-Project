@@ -7,7 +7,7 @@ const AboutCards = () => {
   return (
     <div className='w-full py-[10rem] px-4 bg-white text-black'>
       <div className='text-center text-4xl pb-[2rem]'>
-        <h1 className='font-Glock text-5xl text-[#e57626]'>Meet The Developers</h1>
+        <h1 className='font-Glock text-5xl'>Meet The Developers</h1>
       </div>
       <div className='max-w-[1240px] mx-auto grid md:grid-cols-4 gap-6 py-10'>
         <div className='w-full shadow-xl flex flex-col p-4 my-4 rounded-lg hover:scale-105 duration-300'>
