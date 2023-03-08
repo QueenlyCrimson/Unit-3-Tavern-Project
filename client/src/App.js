@@ -17,6 +17,8 @@ import ForgotPassword from './pages/ForgotPassword'
 function App() {
   const [user, setUser] = useState(null)
 
+ 
+
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
