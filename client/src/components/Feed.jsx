@@ -62,7 +62,6 @@ function Feed({ user }) {
                 {/* need comment component with back button to post that maps all comments for that post */}
                 <p><span className='font-medium mr-2'>{post.userName}</span>{post.content}</p>
               </div>
-
             </div>
 
           </div>
