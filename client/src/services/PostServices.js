@@ -8,3 +8,4 @@ export const GetPosts = async () => {
     throw error
   }
 }
+
