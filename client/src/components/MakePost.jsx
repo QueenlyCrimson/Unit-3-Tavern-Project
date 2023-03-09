@@ -1,33 +1,38 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-// import axios from 'axios'
+import React from 'react'
 
 const MakePost = ({ user }) => {
 
   const userName = localStorage.getItem('userName')
 
   let navigate = useNavigate()
-  const initialState = {
+  let initialState = {
     userName: userName,
     content: '',
     img: '',
     userId: sessionStorage.getItem('user')
   }
 
-  const [formState, setFormState] = useState(initialState)
-
-  const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value })
-  }
+  const [formValues, setFormValues] = useState(initialState)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     if (sessionStorage.getItem('user')) {
-      
-      setFormState(initialState)
+      await CreatePost({
+        userName: userName,
+        content: formValues.content,
+        img: formValues.img
+      })
+      setFormValues(initialState)
       navigate('/')
     }
   }
+  
+  const handleChange = (event) => {
+    setFormValues({ ...formValues, [event.target.id]: event.target.value })
+  }
+
 
   return (
     <div className='grid justify-center'>
@@ -40,7 +45,7 @@ const MakePost = ({ user }) => {
             <div className="grid gap-6">
               <div className="md:col-span-1">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Hey {formState.userName},
+                  Hey {formValues.userName},
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   Would you like to make a post?
