@@ -34,9 +34,16 @@ const ViewComments = () => {
       </div>
 
       {comments.map((comment) => (
-        <div className='flex border-b-2 mb-2 py-2' key={comment.id}>
-            <img className="w-10 h-10 mr-2 object-cover rounded-full" src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=338&ext=jpg" alt='profile-pic'/>
+        <div className='border-b-2 mb-2 py-2'>
+
+          <div className='flex ' key={comment.id}>
+             <img className="w-10 h-10 mr-2 object-cover rounded-full" src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=338&ext=jpg" alt='profile-pic'/>
             <p><span className='font-medium mr-2 pl-2'>NellyNel520</span>{comment.content}</p>
+          </div>
+
+          <div className='pt-2'>
+              <span className="text-sm text-gray-400 font-medium">{comment.likeCount} Likes</span>
+            </div> 
 
         </div>
       ))}
