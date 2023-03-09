@@ -5,17 +5,10 @@ function ProfilePage ({ user }) {
 
 const GetPostsByUser = async () => {
         try {
-<<<<<<< HEAD
-        // const userId = localStorage.getItem('userId')
-        const res = await Client.get(`post/by_user_id/10`)
-        console.log(res.data)
-        setPosts(res.data)
-=======
         const userId = localStorage.getItem('userId')
-          const res = await Client.get(`post/by_user_id/41`)
+          const res = await Client.get(`post/by_user_id/10`)
           console.log(res.data)
           setPosts(res.data)
->>>>>>> 6c95ff82f4e27d335e87ed04ad70220792acd005
         } catch (error) {
         throw error
         }
