@@ -8,7 +8,7 @@ function ProfilePage ({ user }) {
 const GetPostsByUser = async () => {
         try {
         const userId = localStorage.getItem('userId')
-          const res = await Client.get(`post/by_user_id/10`)
+          const res = await Client.get(`post/by_user_id/41`)
           console.log(res.data)
           setPosts(res.data)
         } catch (error) {
