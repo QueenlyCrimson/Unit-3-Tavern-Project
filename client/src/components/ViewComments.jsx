@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 import Client from '../services/api'
 
 const ViewComments = () => {
+
   const [comments, setComments] = useState([])
   let { id } = useParams()
   console.log(id)
@@ -56,6 +57,7 @@ const ViewComments = () => {
 
 
       </div>
+
 
 
     </div>
