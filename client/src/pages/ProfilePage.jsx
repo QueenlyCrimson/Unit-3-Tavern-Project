@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react'
-import { GetPosts, GetPostsByUser } from '../services/PostServices'
-import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 
 function ProfilePage ({ user }) {
 
 const GetPostsByUser = async () => {
         try {
-        const userId = localStorage.getItem('userId')
-          const res = await Client.get(`post/by_user_id/10`)
-          console.log(res.data)
-          setPosts(res.data)
+        // const userId = localStorage.getItem('userId')
+        const res = await Client.get(`post/by_user_id/10`)
+        console.log(res.data)
+        setPosts(res.data)
         } catch (error) {
-          throw error
+        throw error
         }
-      }
+    }
 
 console.log(localStorage.getItem('userId'))
     const [posts, setPosts] = useState([])
@@ -49,9 +47,13 @@ return posts ? (
 
 </div>
                 <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>Chikodi<span className='font-light text-[#6B7082] ml-2'>UserName
-                <button link='/updateProfile'className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>
+                <div>
+                    < a href='/updateProfile'>
+                <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>
                     Edit Profile
                 </button>
+                    </a>
+                </div>
                 </span></h2>
                 
                 <div className='border mt-[30px]'></div>
