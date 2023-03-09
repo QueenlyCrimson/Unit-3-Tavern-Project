@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { GetPosts } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
+// import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 
 function Feed({ user }) {
