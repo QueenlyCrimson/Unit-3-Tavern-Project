@@ -39,3 +39,12 @@ export const CreatePost = async (data) => {
     throw error
   }
 }
+
+export const CreateComment = async (data) => {
+  try {
+    const res = await Client.post('comment/create_comment', data)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
