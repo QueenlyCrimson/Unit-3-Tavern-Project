@@ -30,6 +30,15 @@ export const RegisterUser = async (data) => {
   }
 };
 
+export const UpdateUser = async(data)=>{
+  try {
+    console.log(data.email)
+   await Client.put(`user/update_user/by_id/${data.userId}`,data)
+  } catch (error) {
+    throw error
+  }
+}
+
 export const CheckSession = async () => {
   try {
     // Checks if the current token if it exists is valid
