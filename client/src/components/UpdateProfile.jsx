@@ -1,41 +1,52 @@
 import React from "react"
-import { RegisterUser } from '../services/Auth'
+import { UpdateUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Client from "../services/api"
 
 const UpdateProfile = () => {
 
-    let navigate = useNavigate()
-  
-    let initialState = {
-      name: '',
-      userName: '',
-      email: '',
-      profilePic: '',
-      password: '',
-      confirmPassword: ''
+  let userId = localStorage.getItem('userId')
+
+  let navigate = useNavigate()
+
+  let initialState = {
+    name: '',
+    userName: '',
+    email: '',
+    profilePic: '',
+    password: '',
+    confirmPassword: ''
+  }
+
+  const [formValues, setFormValues] = useState(initialState)
+
+  const getUserById = async () => {
+    const res = await Client.get(`/user/get_user/${userId}`)
+    setFormValues(res.data)
+  }
+  useEffect(() => {
+    getUserById()
+  }, [])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const payload = {
+      name: formValues.name,
+      userName: formValues.userName,
+      email: formValues.email,
+      userId: userId
     }
-  
-    const [formValues, setFormValues] = useState(initialState)
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault()
-      await RegisterUser({
-        name: formValues.name,
-        userName: formValues.userName,
-        img: formValues.img,
-        email: formValues.email,
-        password: formValues.password
-      })
-      setFormValues(initialState)
-      navigate('signIn')
-    }
-  
-    const handleChange = (e) => {
-      setFormValues({ ...formValues, [e.target.name]: e.target.value })
-    }
+    await UpdateUser(payload)
+    setFormValues(initialState)
+    navigate('/feed')
+    alert("Profile Updated!!")
+  }
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
   return (
-  <div className="px-4 py-3 h-screen">
+    <div className="px-4 py-3 h-screen">
       <div>
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
@@ -50,7 +61,6 @@ const UpdateProfile = () => {
             <form >
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-
                   <div>
                     <label className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
                     <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
@@ -97,13 +107,11 @@ const UpdateProfile = () => {
           </div>
         </div>
       </div>
-
       <div className="hidden sm:block" aria-hidden="true">
         <div className="py-5">
           <div className="border-t border-gray-200" />
         </div>
       </div>
-
       <div className="mt-10 sm:mt-0">
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
@@ -148,7 +156,6 @@ const UpdateProfile = () => {
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
                     </div>
-
                     <div className="col-span-6 sm:col-span-4">
                       <label htmlFor="email-address" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
@@ -163,46 +170,6 @@ const UpdateProfile = () => {
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
                     </div>
-                    <div className="col-span-6">
-                      <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
-                        Password
-                      </label>
-                      <input
-                        type="text"
-                        name="password"
-                        id="password"
-                        value={formValues.password}
-                        onChange={handleChange}
-                        autoComplete="password"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                    <div className="col-span-6">
-                      <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
-                        Confirm Password
-                      </label>
-                      <input
-                        type="text"
-                        name="confirmPassword"
-                        id="password"
-                        value={formValues.confirmPassword}
-                        onChange={handleChange}
-                        autoComplete="password"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
-                    <div className="col-span-6">
-                      <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
-                        Confirm Password
-                      </label>
-                      <input
-                        type="text"
-                        name="confirm password"
-                        id="confirm password"
-                        autoComplete="confirm password"
-                        className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
-                      />
-                    </div>
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
@@ -210,7 +177,7 @@ const UpdateProfile = () => {
                     type="submit"
                     className="inline-flex justify-center rounded-md bg-[#e57626] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-[#e99253] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                   >
-                    Save
+                    Update Profile
                   </button>
                 </div>
               </div>
