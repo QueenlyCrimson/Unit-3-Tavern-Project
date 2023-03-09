@@ -1,33 +1,44 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
-// import axios from 'axios'
+import { useState, useEffect} from 'react'
+import React from 'react'
+import { CreatePost } from '../services/PostServices'
 
 const MakePost = ({ user }) => {
 
   const userName = localStorage.getItem('userName')
+  const userId = localStorage.getItem('userId')
 
   let navigate = useNavigate()
-  const initialState = {
+  let initialState = {
     userName: userName,
     content: '',
     img: '',
-    userId: sessionStorage.getItem('user')
+    userId: userId
   }
 
-  const [formState, setFormState] = useState(initialState)
-
-  const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value })
-  }
+  const [formValues, setFormValues] = useState(initialState)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (sessionStorage.getItem('user')) {
-      
-      setFormState(initialState)
-      navigate('/')
-    }
+      await CreatePost({
+        userName: userName,
+        content: formValues.content,
+        img: formValues.img,
+        userId: userId
+      })
+      setFormValues(initialState)
+      navigate('/feed')
+    
   }
+  
+  
+  const handleChange = (event) => {
+    setFormValues({ ...formValues, [event.target.name]: event.target.value })
+  }
+  useEffect(()=>{
+    
+  },[])
+
 
   return (
     <div className='grid justify-center'>
@@ -40,7 +51,7 @@ const MakePost = ({ user }) => {
             <div className="grid gap-6">
               <div className="md:col-span-1">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Hey {formState.userName},
+                  Hey {formValues.userName},
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   Would you like to make a post?
@@ -94,9 +105,10 @@ const MakePost = ({ user }) => {
                     >
                       Caption
                     </label>
-                    <textarea
-                      id="about"
-                      name="about"
+                    <input
+                      type='text'
+                      id="content"
+                      name="content"
                       rows={3}
                       onChange={handleChange}
                       onSubmit={handleSubmit}
@@ -105,7 +117,6 @@ const MakePost = ({ user }) => {
                       defaultValue={''}
                     />
                   </div>
-
                 </div>
               </div>
             </div>
@@ -124,6 +135,7 @@ const MakePost = ({ user }) => {
             <button
               type="submit"
               className="ml-3 rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              onClick={handleSubmit}
             >
               Share
             </button>
