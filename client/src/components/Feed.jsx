@@ -48,14 +48,14 @@ function Feed({ user }) {
           <div className='px-3 pb-2'>
             <div className='pt-2'>
               {/* Like count need to add like button beside count */}
-              <span className="text-sm text-gray-400 font-medium">12 likes</span>
-            </div>
+              <span className="text-sm text-gray-400 font-medium">{post.likeCount} Likes</span>
+            </div> 
             <div className='pt-1'>
               <div className='mb-2 text-sm'>
                 <span className='font-medium mr-2'>{post.userName}</span>{post.content}
               </div>
             </div>
-            <Link to={'/post/comments'}><div className='text-sm mb-2 text-gray-400 cursor-pointer font-medium  hover:text-orange-500'>View all (comment count) comments</div></Link>
+            <Link to={`postComments/${post.id}`}><div className='text-sm mb-2 text-gray-400 cursor-pointer font-medium  hover:text-orange-500'>View all comments</div></Link>
             <div className='mb-2'>
               <div className='mb-2 text-sm'>
                 {/* section where 1st two comments are being shown replace with comment username and comment content */}
