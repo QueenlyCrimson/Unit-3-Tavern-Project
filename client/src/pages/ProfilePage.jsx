@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { GetPosts, GetPostsByUser } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
-
+import CommentText from '../components/CommentText'
 
 function ProfilePage ({ user }) {
 
@@ -54,7 +54,7 @@ return posts ? (
                     Edit Profile
                 </button>
                 </span></h2>
-
+                
                 <div className='border mt-[30px]'></div>
                 <div className="grid grid-cols-3 px-1 snap-y">
                     {posts.map((post) => (
