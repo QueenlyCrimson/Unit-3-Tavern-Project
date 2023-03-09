@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { AiOutlineArrowLeft } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 const ViewComments = () => {
 
@@ -11,7 +12,7 @@ const ViewComments = () => {
     <div className='grid justify-center h-auto'>
     
       <div className='mt-5 md:col-span-2  rounded  border w-full md:mx-0 lg:mx-0 bg-white px-[2rem] py-[2rem]'>
-      <AiOutlineArrowLeft />
+      <Link to={'/feed'}><AiOutlineArrowLeft className='hover:text-orange-500' /></Link>
       <h1 className='text-xl pb-2'>Comments</h1>
 
         <div className='flex border-b-2 mb-2 py-2'>

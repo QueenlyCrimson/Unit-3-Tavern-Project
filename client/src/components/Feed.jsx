@@ -48,7 +48,7 @@ function Feed({ user }) {
           <div className='px-3 pb-2'>
             <div className='pt-2'>
               {/* Like count need to add like button beside count */}
-              <span className="text-sm text-gray-400 font-medium">12 likes</span>
+              <span className="text-sm text-gray-400 font-medium">{post.likeCount}likes</span>
             </div>
             <div className='pt-1'>
               <div className='mb-2 text-sm'>
