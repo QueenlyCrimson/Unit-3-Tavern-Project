@@ -1,37 +1,43 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 import React from 'react'
+import { CreatePost } from '../services/PostServices'
 
 const MakePost = ({ user }) => {
 
   const userName = localStorage.getItem('userName')
+  const userId = localStorage.getItem('userId')
 
   let navigate = useNavigate()
   let initialState = {
     userName: userName,
     content: '',
     img: '',
-    userId: sessionStorage.getItem('user')
+    userId: userId
   }
 
   const [formValues, setFormValues] = useState(initialState)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (sessionStorage.getItem('user')) {
       await CreatePost({
         userName: userName,
         content: formValues.content,
-        img: formValues.img
+        img: formValues.img,
+        userId: userId
       })
       setFormValues(initialState)
-      navigate('/')
-    }
+      navigate('/feed')
+    
   }
   
+  
   const handleChange = (event) => {
-    setFormValues({ ...formValues, [event.target.id]: event.target.value })
+    setFormValues({ ...formValues, [event.target.name]: event.target.value })
   }
+  useEffect(()=>{
+    
+  },[])
 
 
   return (
@@ -99,9 +105,10 @@ const MakePost = ({ user }) => {
                     >
                       Caption
                     </label>
-                    <textarea
-                      id="about"
-                      name="about"
+                    <input
+                      type='text'
+                      id="content"
+                      name="content"
                       rows={3}
                       onChange={handleChange}
                       onSubmit={handleSubmit}
@@ -110,7 +117,6 @@ const MakePost = ({ user }) => {
                       defaultValue={''}
                     />
                   </div>
-
                 </div>
               </div>
             </div>
@@ -129,6 +135,7 @@ const MakePost = ({ user }) => {
             <button
               type="submit"
               className="ml-3 rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+              onClick={handleSubmit}
             >
               Share
             </button>
