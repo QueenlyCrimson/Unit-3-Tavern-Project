@@ -9,8 +9,6 @@ const ViewComments = () => {
   console.log(id)
 
   useEffect(() => {
-
-
   const handleComments = async () => {
     const res = await Client.get(`/comment/find_comments/by_postId/${id}`)
     console.log(res.data)
