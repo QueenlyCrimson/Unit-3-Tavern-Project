@@ -6,20 +6,24 @@ import Client from '../services/api'
 const ViewComments = () => {
 
   const [comments, setComments] = useState([])
+  const [userId, setUserId] = useState([])
+  
   let { id } = useParams()
   console.log(id)
 
   useEffect(() => {
 
-
     const handleComments = async () => {
       const res = await Client.get(`/comment/find_comments/by_postId/${id}`)
       console.log(res.data)
       setComments(res.data)
+      setUserId(res.data.userId)
+      
 
     }
     handleComments()
   }, [id])
+
 
 
 
@@ -37,9 +41,10 @@ const ViewComments = () => {
             <div className='border-b-2 mb-2 py-2' key={comment.id}>
 
               <div className='flex ' >
+  
 
                 <img className="w-10 h-10 mr-2 object-cover rounded-full" src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=338&ext=jpg" alt='profile-pic' />
-                <p><span className='font-medium mr-2 pl-2'>NellyNel520</span>{comment.content}</p>
+                <p><span className='font-medium mr-2 pl-2'>{comment.name}</span>{comment.content}</p>
               </div>
 
               <div className='flex pt-2'>
