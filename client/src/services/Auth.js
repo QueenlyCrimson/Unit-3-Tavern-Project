@@ -6,7 +6,6 @@ export const SignInUser = async (data) => {
     // Set the current signed in users token to localStorage
     localStorage.setItem('token', res.data.token)
     return res.data.data
-
   } catch (error) {
     throw error;
   }
@@ -14,10 +13,9 @@ export const SignInUser = async (data) => {
 export const getUserInfo = async(data)=>{
   try {
     const res = await Client.get(`/user/get_user/by_email/${data.email}`)
-    localStorage.setItem('token', res.data.token)
-  localStorage.setItem('userId', res.data.id)
-  localStorage.setItem('userName', res.data.userName)
-  localStorage.setItem('name', res.data.name)
+    localStorage.setItem('userId', res.data.id)
+    localStorage.setItem('userName', res.data.userName)
+    localStorage.setItem('name', res.data.name)
   } catch (error) {
     throw error
   }
