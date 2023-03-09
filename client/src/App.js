@@ -11,7 +11,7 @@ import UpdateProfile from './components/UpdateProfile'
 import Footer from './components/Footer'
 import ProfilePage from './pages/ProfilePage'
 import Feed from './components/Feed'
-import { CheckSession } from './services/Auth'
+import { CheckSession, getUserInfo } from './services/Auth'
 import ViewComments from './components/ViewComments'
 import ForgotPassword from './pages/ForgotPassword'
 
@@ -20,15 +20,17 @@ function App() {
 
   const navigate = useNavigate()
 
+  const sendUserInfo = async () => {
+    const data = await getUserInfo(user)
+  }
+  sendUserInfo()
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
-    //If a token exists, sends token to localStorage to persist logged in user
   }
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    // Check if token exists before requesting to validate the token
     if (token) {
       checkToken()
     }
@@ -48,13 +50,15 @@ function App() {
           <Route path="makeProfile" element={<MakeProfile />} />
           <Route path="makePost" element={<MakePost user={user} />} />
           <Route path="signIn" element={<SignIn setUser={setUser} />} />
-          <Route path="post/comments" element={<ViewComments />} />
           <Route path="about" element={<About />} />
           <Route path="feed" element={<Feed user={user} />} />
           <Route index element={<Home />} />
           <Route path="updateProfile" element={<UpdateProfile />} />
           <Route path="profile" element={<ProfilePage user={user} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
+          <Route path="feed/postComments/:id" element={<ViewComments />} />
+
+          {/* <Route path="sneakers/:id" element={<SneakerDetails />} /> */}
         </Routes>
       </main>
       <Footer />
