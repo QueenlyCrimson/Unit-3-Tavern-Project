@@ -1,12 +1,11 @@
-import React from "react"
+import React from 'react'
 import { RegisterUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
-import { useState } from "react"
+import { useState } from 'react'
 
 // import MakePost from "../components/MakePost"
 
 const MakeProfile = () => {
-
   let navigate = useNavigate()
 
   let initialState = {
@@ -40,10 +39,15 @@ const MakeProfile = () => {
   return (
     <div className="px-4 py-3 h-screen">
       <div>
+        <h1 className="text-white text-3xl flex justify-center py-3 font-bold">
+          Make your Profile
+        </h1>
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0">
-              <h3 className="text-base font-semibold leading-6 text-[#e57626]">Profile Photo</h3>
+              <h3 className="text-base font-semibold leading-6 text-[#e57626]">
+                Profile Photo
+              </h3>
               <p className="mt-1 text-sm text-white">
                 Import a photo for your profile picture.
               </p>
@@ -53,9 +57,10 @@ const MakeProfile = () => {
             <form action="#">
               <div className="shadow sm:overflow-hidden sm:rounded-md">
                 <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
-
                   <div>
-                    <label className="block text-sm font-medium leading-6 text-gray-900">Photo</label>
+                    <label className="block text-sm font-medium leading-6 text-gray-900">
+                      Photo
+                    </label>
                     <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                       <div className="space-y-1 text-center">
                         <svg
@@ -78,11 +83,20 @@ const MakeProfile = () => {
                             className="relative cursor-pointer rounded-md bg-white font-medium text-[#e57626] focus-within:outline-none focus-within:ring-2 focus-within:ring-[#c66c2c] focus-within:ring-offset-2 hover:text-[#e99253]"
                           >
                             <span>Upload a file</span>
-                            <input id="file-upload" name="profilePic" type="file" className="sr-only" value={formValues.img} onChange={handleChange} />
+                            <input
+                              id="file-upload"
+                              name="profilePic"
+                              type="file"
+                              className="sr-only"
+                              value={formValues.img}
+                              onChange={handleChange}
+                            />
                           </label>
                           <p className="pl-1">or drag and drop</p>
                         </div>
-                        <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                        <p className="text-xs text-gray-500">
+                          PNG, JPG, GIF up to 10MB
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -111,9 +125,12 @@ const MakeProfile = () => {
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0">
-              <h3 className="text-base font-semibold leading-6 text-[#e57626]">Personal Information</h3>
+              <h3 className="text-base font-semibold leading-6 text-[#e57626]">
+                Personal Information
+              </h3>
               <p className="mt-1 text-sm text-white">
-                This information will be displayed publicly so be careful what you share.
+                This information will be displayed publicly so be careful what
+                you share.
               </p>
             </div>
           </div>
@@ -123,7 +140,10 @@ const MakeProfile = () => {
                 <div className="bg-white px-4 py-5 sm:p-6">
                   <div className="grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label
+                        htmlFor="first-name"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
                         Name
                       </label>
                       <input
@@ -138,7 +158,10 @@ const MakeProfile = () => {
                     </div>
 
                     <div className="col-span-6 sm:col-span-3">
-                      <label htmlFor="last-name" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label
+                        htmlFor="last-name"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
                         Username
                       </label>
                       <input
@@ -153,7 +176,10 @@ const MakeProfile = () => {
                     </div>
 
                     <div className="col-span-6 sm:col-span-4">
-                      <label htmlFor="email-address" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label
+                        htmlFor="email-address"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
                         Email address
                       </label>
                       <input
@@ -167,7 +193,10 @@ const MakeProfile = () => {
                       />
                     </div>
                     <div className="col-span-6">
-                      <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label
+                        htmlFor="street-address"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
                         Password
                       </label>
                       <input
@@ -181,7 +210,10 @@ const MakeProfile = () => {
                       />
                     </div>
                     <div className="col-span-6">
-                      <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                      <label
+                        htmlFor="street-address"
+                        className="block text-sm font-medium leading-6 text-gray-900"
+                      >
                         Confirm Password
                       </label>
                       <input
@@ -194,7 +226,6 @@ const MakeProfile = () => {
                         className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:text-sm sm:leading-6"
                       />
                     </div>
-                  
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">

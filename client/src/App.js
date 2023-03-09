@@ -14,12 +14,12 @@ import Feed from './components/Feed'
 import { CheckSession, getUserInfo } from './services/Auth'
 import ViewComments from './components/ViewComments'
 import ForgotPassword from './pages/ForgotPassword'
+import MakeComment from './components/MakeComment'
 
 function App() {
   const [user, setUser] = useState(null)
 
   const navigate = useNavigate()
-
 
   const checkToken = async () => {
     const user = await CheckSession()
@@ -54,7 +54,7 @@ function App() {
           <Route path="profile" element={<ProfilePage user={user} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="feed/postComments/:id" element={<ViewComments />} />
-
+          <Route path="makeComment" element={<MakeComment user={user} />} />
           {/* <Route path="sneakers/:id" element={<SneakerDetails />} /> */}
         </Routes>
       </main>

@@ -48,6 +48,7 @@ const UpdateProfile = () => {
   return (
     <div className="px-4 py-3 h-screen">
       <div>
+        <h1 className="text-white text-3xl flex justify-center py-3 font-bold">Update your Profile</h1>
         <div className="md:grid md:grid-cols-3 md:gap-6">
           <div className="md:col-span-1">
             <div className="px-4 sm:px-0">
