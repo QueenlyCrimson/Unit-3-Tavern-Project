@@ -1,5 +1,5 @@
 import { LockClosedIcon } from '@heroicons/react/20/solid'
-import { SignInUser } from '../services/Auth'
+import { SignInUser, getUserInfo } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -18,9 +18,15 @@ const SignIn = (props) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
     setFormValues({ email: '', password: '' })
+    await getUserInfo(payload)
     props.setUser(payload)
     navigate('/feed')
   }
+
+  // const sendUserInfo = async () => {
+  //   const data = await getUserInfo(user)
+  // }
+  // sendUserInfo()
 
   const handleChange = (e) => {
     const { name, value } = e.target

@@ -20,10 +20,7 @@ function App() {
 
   const navigate = useNavigate()
 
-  const sendUserInfo = async () => {
-    const data = await getUserInfo(user)
-  }
-  sendUserInfo()
+
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)

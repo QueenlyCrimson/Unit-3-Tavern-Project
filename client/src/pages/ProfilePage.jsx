@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { GetPosts, GetPostsByUser } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
 import Client from '../services/api'
-import CommentText from '../components/CommentText'
 
 function ProfilePage ({ user }) {
 
@@ -50,7 +49,7 @@ return posts ? (
 
 </div>
                 <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>Chikodi<span className='font-light text-[#6B7082] ml-2'>UserName
-                <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>
+                <button link='/updateProfile'className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>
                     Edit Profile
                 </button>
                 </span></h2>
