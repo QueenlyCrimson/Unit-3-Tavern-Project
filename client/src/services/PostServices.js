@@ -10,9 +10,10 @@ export const GetPosts = async () => {
   }
 }
 
-export const GetPostsByUser = async (data) => {
+export const GetPostsByUser = async () => {
   try {
-    const res = await Client.get(`post/post/${data}`)
+    const userId = localStorage.getItem('userId')
+    const res = await Client.get(`post/post/${userId}`)
     console.log(res.data)
     return res.data
   } catch (error) {

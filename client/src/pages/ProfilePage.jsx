@@ -1,27 +1,34 @@
 import { useEffect, useState } from 'react'
 import { GetPosts, GetPostsByUser } from '../services/PostServices'
 import { useNavigate } from 'react-router-dom'
+import Client from '../services/api'
 
 
 function ProfilePage ({ user }) {
-console.log(user)
-console.log(localStorage.getItem('userId'))
-const userId = localStorage.getItem('userId')
-    const [posts, setPosts] = useState([])
-    // console.log('post is', posts)
-    let navigate = useNavigate()
 
-    // const [userId, setuserId] = useState([])
+const GetPostsByUser = async () => {
+        try {
+        const userId = localStorage.getItem('userId')
+          const res = await Client.get(`post/by_user_id/10`)
+          console.log(res.data)
+          setPosts(res.data)
+        } catch (error) {
+          throw error
+        }
+      }
+
+console.log(localStorage.getItem('userId'))
+    const [posts, setPosts] = useState([])
     const handlePosts = async () => {
-    // const data = await GetPostsByUser(userId)
-    const data = await GetPosts()
-    // console.log(data)
-    setPosts(data)
+
 }
 
     useEffect(() => {
     handlePosts()
+    GetPostsByUser()
 }, [user])
+
+console.log(posts)
 return posts ? (
     <div className='flex-row-reverse w-screen h-screen'>
         <div className='w-[900px] h-screen bg-white mx-auto my-auto rounded-2xl overflow-hidden'>
