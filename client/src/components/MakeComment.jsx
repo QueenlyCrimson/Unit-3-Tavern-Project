@@ -53,7 +53,7 @@ console.log(userId)
           <div className="grid gap-6">
             <div className="md:col-span-1">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
-                Hey {formValues.userName},
+                Hey {formValues.userId},
               </h3>
               <p className="mt-1 text-sm text-gray-500">
                 Would you like to make a comment on this post?
