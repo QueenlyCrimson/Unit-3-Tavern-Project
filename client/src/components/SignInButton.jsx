@@ -1,6 +1,6 @@
 import { Link, } from "react-router-dom"
 
-const SignInButton =  ({ user, handleLogOut }) => {
+const SignInButton = ({ user, handleLogOut }) => {
 
 
 
