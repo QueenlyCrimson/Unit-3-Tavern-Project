@@ -60,13 +60,8 @@ const MakePost = ({ user }) => {
               <div className="mt-5 md:col-span-2 md:mt-0">
                 <div className="grid gap-6">
                   <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                    <label
-                      htmlFor="img"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      Image
-                    </label>
-                    <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+
+                    {/* <div className="mt-2 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
                       <div className="space-y-1 text-center">
                         <svg
                           className="mx-auto h-12 w-12 text-gray-400"
@@ -95,14 +90,33 @@ const MakePost = ({ user }) => {
                           </div>
                           <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
                         </div>
+
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="col-span-6 sm:col-span-3">
                     <label
                       htmlFor="content"
                       className="block text-sm font-medium text-gray-700"
                     >
+                      <label
+                        htmlFor="img"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Image
+                        <input
+                          type='text'
+                          id="img"
+                          name="img"
+                          rows={3}
+                          onChange={handleChange}
+                          onSubmit={handleSubmit}
+                          className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:py-1.5 sm:text-sm sm:leading-6"
+                          placeholder="place image here!"
+                          defaultValue={''}
+                        />
+                      </label>
+
                       Caption
                     </label>
                     <input
@@ -144,6 +158,22 @@ const MakePost = ({ user }) => {
       </div>
     </div>
   )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 export default MakePost
