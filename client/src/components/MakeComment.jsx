@@ -9,14 +9,20 @@ const MakeComment = ({ userInfo }) => {
 
 
   let { postId } = useParams()
-  const userName = userInfo.data
-  const userId = userInfo.data.id
+  const userName = userInfo.name
+  const userId = userInfo.id
+
+  let newPostId = parseInt(postId)
+
+  console.log(userName)
+
+
 
 
 
   let navigate = useNavigate()
   let initialState = {
-    name: userId,
+    name: userName,
     content: '',
     userId: userId,
     postId: postId
@@ -31,7 +37,7 @@ const MakeComment = ({ userInfo }) => {
       name: userName,
       content: formValues.content,
       userId: userId,
-      postId: postId
+      postId: newPostId
     })
     setFormValues(initialState)
     navigate('/feed')
@@ -58,7 +64,7 @@ const MakeComment = ({ userInfo }) => {
             <div className="grid gap-6">
               <div className="md:col-span-1">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Hey {userName.userName},
+                  Hey {userName},
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   Would you like to make a comment on this post?
