@@ -28,6 +28,9 @@ function App() {
   const checkToken = async () => {
     const userCS = await CheckSession()
     setUser(userCS)
+    console.log("fklhadsfkjhsd")
+    const res = await Client.get(`/user/get_user/by_email/${userCS.email}`)
+    setUserInfo(res.data)
   }
 
   useEffect(() => {
