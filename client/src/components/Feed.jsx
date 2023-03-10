@@ -33,7 +33,7 @@ function Feed({ user }) {
             </div>
           </div>
 
-          <img className='w-full bg-cover' src={post.img} alt="post" />
+          <img className='w-full bg-cover rounded' src={post.img} alt="post" />
 
           <div className="flex items-center justify-between mx-4 mt-3 mb-2">
             <div className="flex gap-5">
