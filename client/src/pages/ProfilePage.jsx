@@ -10,7 +10,6 @@ function ProfilePage({ handleLogOut, userInfo }) {
         try {
             const userId = userInfo.id
             const res = await Client.get(`post/by_user_id/${userId}`)
-            console.log(res)
             setPosts(res.data)
         } catch (error) {
             throw error

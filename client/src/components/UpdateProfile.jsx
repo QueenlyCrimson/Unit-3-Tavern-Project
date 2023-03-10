@@ -24,7 +24,6 @@ const UpdateProfile = () => {
 
   const getUserById = async () => {
     const res = await Client.get(`/user/get_user/${id}`)
-    console.log(res.data)
     setFormValues(res.data)
   }
 

@@ -12,15 +12,11 @@ function Feed({ user }) {
   const [posts, setPosts] = useState([])
   const [userId, setUserId] = useState([])
 
-  // let { id } = useParams()
-  // console.log(id)
-
   let navigate = useNavigate()
 
   const deletePost = async (event, postId) => {
 
     const res = await Client.delete(`/post/${postId}`)
-    console.log(res)
     window.alert('Success! Post was deleted')
     handlePosts()
   }

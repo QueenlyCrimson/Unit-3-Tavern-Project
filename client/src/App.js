@@ -21,14 +21,11 @@ function App() {
   const [user, setUser] = useState(null)
   const [userInfo,setUserInfo] = useState({})
 
-  console.log(userInfo)
-
   const navigate = useNavigate()
 
   const checkToken = async () => {
     const userCS = await CheckSession()
     setUser(userCS)
-    console.log("fklhadsfkjhsd")
     const res = await Client.get(`/user/get_user/by_email/${userCS.email}`)
     setUserInfo(res.data)
   }
