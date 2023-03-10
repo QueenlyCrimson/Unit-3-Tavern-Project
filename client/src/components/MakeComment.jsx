@@ -1,11 +1,13 @@
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import React from 'react'
 import { CreateComment } from '../services/PostServices'
 
 const MakeComment = ({ userInfo }) => {
 
+
+  let {postId} = useParams()
   const userName = userInfo.data.userName
   const userId = userInfo.data.id
 
@@ -15,6 +17,7 @@ const MakeComment = ({ userInfo }) => {
     name: userId,
     content: '',
     userId: userId,
+    postId: postId
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -109,7 +112,7 @@ const MakeComment = ({ userInfo }) => {
         </div>
         </div>
       </form>
-
+    </div>
     </div>
   )
 }
