@@ -5,7 +5,7 @@ import { CreatePost } from '../services/PostServices'
 
 const MakePost = ({ userInfo }) => {
 
-  const userName = userInfo.data.userName
+  const userName = userInfo.data
   const userId = userInfo.data.id
 
   let navigate = useNavigate()
@@ -51,7 +51,7 @@ const MakePost = ({ userInfo }) => {
             <div className="grid gap-6">
               <div className="md:col-span-1">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Hey {formValues.userName},
+                  Hey {userName.userName},
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   Would you like to make a post?
@@ -158,22 +158,6 @@ const MakePost = ({ userInfo }) => {
       </div>
     </div>
   )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 export default MakePost

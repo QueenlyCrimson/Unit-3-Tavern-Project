@@ -27,7 +27,8 @@ function App() {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    setUser(user)
+    // setUser(user)
+    console.log(user)
   }
 
   useEffect(() => {
@@ -54,7 +55,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="feed" element={<Feed user={user} />} />
           <Route index element={<Home />} />
-          <Route path="updateProfile" element={<UpdateProfile userInfo={userInfo}/>} />
+          <Route path="updateProfile/:id" element={<UpdateProfile userInfo={userInfo}/>} />
           <Route path="profile" element={<ProfilePage userInfo={userInfo} user={user} handleLogOut={handleLogOut} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="feed/postComments/:id" element={<ViewComments />} />
