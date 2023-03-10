@@ -34,28 +34,61 @@ function ProfilePage({ handleLogOut, userInfo }) {
     }, [userInfo])
 
     return posts ? (
-        <div className='flex-row-reverse w-screen h-screen'>
-            <div className='w-[900px] h-screen bg-white mx-auto my-auto rounded-2xl overflow-hidden'>
-                <div className=''>
-                    {/* <img className='top-0 z-10' src={banner} alt=''></img> */}
-                </div>
-                <div className='relative'>
-                    {/* <img className='z-0 mx-auto mt-[-45px] rounded-full border-[5px] border-white' src={pic} alt=''></img> */}
-                </div>
-                <div className='flex-col  grid  mb-10'>
-                    <div className='bg-green p-3 rounded flex items-start justify-center'>
+    <div className='bg-gray-100 h-screen ml-[10rem] w-3/4 flex'>
+        <div className='flex md:flex-row-reverse flex-wrap'>
+            <div className='w-full p-4 text-center rounded-2xl'>
+                <div className='mb-10'>
+                    <div className='bg-green p-3 rounded items-start'>
                         <img
                             className='rounded-full'
                             src="https://img.freepik.com/free-icon/user_318-159711.jpg?size=338&ext=jpg"
                             alt="profilePic"
                             width='100' />
                     </div>
-                    <div className='p-3 text-gray col-span-1'>
-
+                    <div className='text-left pl-4 pt-4">'>
+                        <span className="font-light text-[#6B7082] text-2xl mr-2">{userData.userName}</span>
+                        <span className="text-base font-semibold text-gray-700 mr-2">
+                            <button className="bg-transparent hover:bg-blue-500 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-600 hover:border-transparent rounded">Edit Profile</button>
+                        </span>
+                        <span class="text-base font-semibold text-gray-700">
+                            <button className="p-1 border-transparent text-gray-700 rounded-full hover:text-blue-600 focus:outline-none focus:text-gray-600" aria-label="Notifications">
+                                <svg class="h-8 w-8" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </button>
+                        </span>
                     </div>
-                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userInfo.name}<span className='font-light text-[#6B7082] ml-2'>{userInfo.userName}
+
+                    <div className="text-left pl-4 pt-3">
+                        <span class="text-base font-semibold text-gray-700 mr-2">
+                            <b>220</b> posts
+                        </span>
+                        <span class="text-base font-semibold text-gray-700 mr-2">
+                            <b>114</b> followers
+                        </span>
+                        <span class="text-base font-semibold text-gray-700">
+                            <b>200</b> following
+                        </span>
+                    </div>
+
+                    <div class="text-left pl-4 pt-3">
+                        <span class="text-lg font-bold text-gray-700 mr-2">Sonali Hirave</span>
+                    </div>
+
+                    <div class="text-left pl-4 pt-3">
+                        <p class="text-base font-medium text-blue-700 mr-2">#graphicsdesigner #traveller #reader #blogger #digitalmarketer</p>
+                        <p class="text-base font-medium text-gray-700 mr-2">https://www.behance.net/hiravesona7855</p>
+                    </div>
+
+
+
+                </div>
+
+                        {/* <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userInfo.name}<span className='font-light text-[#6B7082] ml-2'>{userInfo.userName}
                         <div>
-                            <a href={`/updateProfile/${userInfo.id}`}>
+                            <a href='/updateProfile'>
+
                                 <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>
                                     Edit Profile
                                 </button>
@@ -69,7 +102,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
                             </button>
 
                         </div>
-                    </span></h2>
+                    </span></h2> */}
 
                     <div className='border mt-[30px]'></div>
                     <div className="grid grid-cols-3 px-1 snap-y">
@@ -82,9 +115,11 @@ function ProfilePage({ handleLogOut, userInfo }) {
                             </div>
                         ))}
                     </div>
+              
                 </div>
-            </div>
+            
         </div>
+    </div>
     ) : (
         <div>
             <h3>TEST!</h3>
@@ -93,3 +128,10 @@ function ProfilePage({ handleLogOut, userInfo }) {
 }
 
 export default ProfilePage
+
+
+
+
+
+
+
