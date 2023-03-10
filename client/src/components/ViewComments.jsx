@@ -3,7 +3,6 @@ import { AiOutlineArrowLeft } from 'react-icons/ai'
 import { BsFillTrashFill } from 'react-icons/bs'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import Client from '../services/api'
-import AddComment from './AddComment'
 
 const ViewComments = () => {
 
