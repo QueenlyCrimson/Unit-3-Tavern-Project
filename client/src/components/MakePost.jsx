@@ -4,9 +4,8 @@ import React from 'react'
 import { CreatePost } from '../services/PostServices'
 
 const MakePost = ({ userInfo }) => {
-  // console.log(userInfo)
+
   const userName = userInfo.userName
-  console.log(userName)
   const userId = userInfo.id
 
   let navigate = useNavigate()

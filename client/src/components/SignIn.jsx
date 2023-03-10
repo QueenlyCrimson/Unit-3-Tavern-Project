@@ -19,10 +19,8 @@ const SignIn = ({ setUser, setUserInfo }) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
     setFormValues({ email: '', password: '' })
-    // await getUserInfo(payload)
     setUser(payload)
     const res = await Client.get(`/user/get_user/by_email/${payload.email}`)
-    console.log(res.data)
     setUserInfo(res.data)
     navigate('/feed')
   }

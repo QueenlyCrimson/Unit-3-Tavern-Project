@@ -10,7 +10,6 @@ function ProfilePage({ handleLogOut, userInfo }) {
         try {
             const userId = userInfo.id
             const res = await Client.get(`post/by_user_id/${userId}`)
-            console.log(res)
             setPosts(res.data)
         } catch (error) {
             throw error
@@ -34,6 +33,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
     }, [userInfo])
 
     return posts ? (
+
     <div className='bg-gray-100 h-screen ml-[10rem] w-3/4 flex'>
     <div className=''>
         <div className='flex md:flex-row-reverse flex-wrap '>
@@ -91,6 +91,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
                     </div>
                 </div>
 
+
                 
             </div>
         </div>
@@ -103,6 +104,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
                 </div>
                 <h1 className="pt-16 text-base font-semibold text-gray-900">Fun</h1>
             </div>
+
 
             <div className="flex-1 text-center px-4 py-2 m-2">
                 <div className="relative shadow-xl mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">
@@ -117,6 +119,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
                 </div>
                 <h1 className="pt-16 text-base font-semibold text-gray-900">Flowers</h1>
             </div>
+
 
             <div className="flex-1 text-center px-4 py-2 m-2">
                 <div className="relative shadow-xl mx-auto h-24 w-24 -my-12 border-white rounded-full overflow-hidden border-4">
@@ -189,6 +192,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
             </div>
         </div>
 
+
         <div className="grid grid-cols-3">
             {posts.map((post) => (
             <div className="flex-nowrap py-5 w-100 lg:flex" key={post.id}>
@@ -217,6 +221,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
    
     
     
+
     ) : (
         <div>
             <h3>TEST!</h3>
