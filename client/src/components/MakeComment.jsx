@@ -91,8 +91,6 @@ const MakeComment = ({ userInfo }) => {
               </div>
             </div>
 
-
-
         <div className="flex  py-3 justify-center">
           <Link to='/'>
             <button
