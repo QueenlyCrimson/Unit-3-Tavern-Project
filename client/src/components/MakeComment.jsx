@@ -1,14 +1,16 @@
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useState, useEffect} from 'react'
 
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import React from 'react'
 import { CreateComment } from '../services/PostServices'
 
-const MakeComment = ({ user }) => {
-let {postId} =useParams()
-const userName = localStorage.getItem('userName')
-const userId = localStorage.getItem('userId')
-console.log(userId)
+const MakeComment = ({ userInfo }) => {
+
+
+  let {postId} = useParams()
+  const userName = userInfo.data.userName
+  const userId = userInfo.data.id
+
 
   let navigate = useNavigate()
   let initialState = {
@@ -22,70 +24,73 @@ console.log(userId)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-      await CreateComment({
-        name: userId,
-        content: formValues.content,
-        userId: userId,
-        postId: postId
-      })
-      setFormValues(initialState)
-      navigate('/feed')
-    
+
+    await CreateComment({
+      userName: userName,
+      content: formValues.content,
+      userId: userId,
+      postId: postId
+    })
+    setFormValues(initialState)
+    navigate('/feed')
+
+
   }
-  
-  
+
+
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value })
   }
-  useEffect(()=>{
-    
-  },[])
+  useEffect(() => {
+
+  }, [])
 
 
-  return(
+  return (
     <div className='grid justify-center'>
-    <div className="m-8 h-screen max-w-md justify-center">
-      <h1 className="text-white w-full text-center p-5 text-2xl font-bold">
-        Make a Comment!
-      </h1>
-      <form onSubmit={handleSubmit} className=" py-12 px-4  space-y-6">
-        <div className="bg-white rounded-md px-4 py-5 shadow sm:rounded-lg sm:p-6">
-          <div className="grid gap-6">
-            <div className="md:col-span-1">
-              <h3 className="text-lg font-medium leading-6 text-gray-900">
-                Hey {formValues.userId},
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">
-                Would you like to make a comment on this post?
-              </p>
-            </div>
-            <div className="mt-5 md:col-span-2 md:mt-0">
-              <div className="grid gap-6">
-                <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                
-                <div className="col-span-6 sm:col-span-3">
-                  <label
-                    htmlFor="content"
-                    className="block text-sm font-medium text-gray-700"
-                  >
-                    Comment
-                  </label>
-                  <input
-                    type='text'
-                    id="content"
-                    name="content"
-                    rows={3}
-                    onChange={handleChange}
-                    onSubmit={handleSubmit}
-                    className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:py-1.5 sm:text-sm sm:leading-6 p-1"
-                    placeholder="Whats on your mind!"
-                    defaultValue={''}
-                  />
+      <div className="m-8 h-screen max-w-md justify-center">
+        <h1 className="text-white w-full text-center p-5 text-2xl font-bold">
+          Make a Comment!
+        </h1>
+        <form onSubmit={handleSubmit} className=" py-12 px-4  space-y-6">
+          <div className="bg-white rounded-md px-4 py-5 shadow sm:rounded-lg sm:p-6">
+            <div className="grid gap-6">
+              <div className="md:col-span-1">
+                <h3 className="text-lg font-medium leading-6 text-gray-900">
+                  Hey {formValues.userName},
+                </h3>
+                <p className="mt-1 text-sm text-gray-500">
+                  Would you like to make a comment on this post?
+                </p>
+              </div>
+              <div className="mt-5 md:col-span-2 md:mt-0">
+                <div className="grid gap-6">
+                  <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+
+                    <div className="col-span-6 sm:col-span-3">
+                      <label
+                        htmlFor="content"
+                        className="block text-sm font-medium text-gray-700"
+                      >
+                        Comment
+                      </label>
+                      <input
+                        type='text'
+                        id="content"
+                        name="content"
+                        rows={3}
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
+                        className="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-600 sm:py-1.5 sm:text-sm sm:leading-6 p-1"
+                        placeholder="Whats on your mind!"
+                        defaultValue={''}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+
 
 
         <div className="flex  py-3 justify-center">
@@ -108,8 +113,8 @@ console.log(userId)
         </div>
       </form>
     </div>
-  </div>
-)
+    </div>
+  )
 }
 
 export default MakeComment
