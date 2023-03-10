@@ -92,6 +92,8 @@ const MakeComment = ({ userInfo }) => {
                 </div>
               </div>
             </div>
+            </div>
+            </div>
 
 
 
@@ -113,7 +115,9 @@ const MakeComment = ({ userInfo }) => {
           </button>
         </div>
         </div>
+        
       </form>
+      
     </div>
     </div>
   )
