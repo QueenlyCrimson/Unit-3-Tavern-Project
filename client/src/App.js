@@ -21,6 +21,8 @@ function App() {
   const [user, setUser] = useState({})
   const [userInfo,setUserInfo] = useState({})
 
+  console.log(userInfo)
+
   const navigate = useNavigate()
 
   const checkToken = async () => {

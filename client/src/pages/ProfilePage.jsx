@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-function ProfilePage({ user, handleLogOut, userInfo }) {
+function ProfilePage({ handleLogOut, userInfo }) {
     let navigate = useNavigate()
 
     const [userData, setUserData] = useState({})
@@ -15,10 +15,10 @@ function ProfilePage({ user, handleLogOut, userInfo }) {
 
     const GetPostsByUser = async () => {
         try {
-        const userId = localStorage.getItem('userId')
-          const res = await Client.get(`post/by_user_id/${userId}`)
-          console.log(res.data)
-          setPosts(res.data)
+            const userId = userInfo.data.id
+            const res = await Client.get(`post/by_user_id/${userId}`)
+            console.log(res.data)
+            setPosts(res.data)
         } catch (error) {
             throw error
         }
@@ -39,7 +39,7 @@ function ProfilePage({ user, handleLogOut, userInfo }) {
         GetUser()
         handlePosts()
         GetPostsByUser()
-    }, [user])
+    }, [userInfo])
 
     return posts ? (
         <div className='flex-row-reverse w-screen h-screen'>
