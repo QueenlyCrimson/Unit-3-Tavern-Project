@@ -20,9 +20,9 @@ function Feed({ user }) {
   }, [user])
 
   return user ? (
-    <div className="grid ">
+    <div className="grid">
       {posts.map((post) => (
-        <div className="rounded overflow-hidden border w-full my-4 lg:w-6/12 bg-white mx-3 md:mx-0 lg:mx-0" key={post.id}>
+        <div className="rounded overflow-hidden border w-full my-4 lg:w-6/12  bg-white mx-3 md:mx-0 lg:mx-[20rem]" key={post.id}>
           <div className='w-full flex justify-between p-3'>
             <div className='flex'>
               {/* user profile image */}
