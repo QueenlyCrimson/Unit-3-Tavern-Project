@@ -36,9 +36,9 @@ const NavBar = ({ user, handleLogOut }) => {
           <li className='p-4 hover:text-orange-500'><Link to="/makeProfile">Register</Link></li>
           <SignInButton user={user} handleLogOut={handleLogOut} />
           <li className='p-4 hover:text-orange-500'><Link to="/about">About</Link></li>
-          <li className='p-4 hover:text-orange-500'><Link to="/makePost">MakePost</Link></li>
+          {/* <li className='p-4 hover:text-orange-500'><Link to="/makePost">MakePost</Link></li>
           <li className='p-4 hover:text-orange-500'><Link to="/updateProfile">Update Profile</Link></li>
-          <li className='p-4 hover:text-orange-500'><Link to="/profile">ProfilePage</Link></li>
+          <li className='p-4 hover:text-orange-500'><Link to="/profile">ProfilePage</Link></li> */}
         </ul>
       </div>
     </nav>
