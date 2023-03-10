@@ -63,7 +63,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
                     </div>
                     <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userData.name}<span className='font-light text-[#6B7082] ml-2'>{userData.userName}
                         <div>
-                            < a href='/updateProfile'>
+                            <a href={`/updateProfile/${userData.id}`}>
                                 <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>
                                     Edit Profile
                                 </button>
