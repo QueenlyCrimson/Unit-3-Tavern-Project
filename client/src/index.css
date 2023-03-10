@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 body{
-  background-color: #353131;
+  background-color: #1b1414;
 }
 /* .profilePageCard img{
 width: 200px;
 }
 .profilePageCard{
-  display: flex;
+  display: flex; #353131
 } */
