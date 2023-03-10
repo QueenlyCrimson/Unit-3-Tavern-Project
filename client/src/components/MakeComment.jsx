@@ -48,6 +48,7 @@ const MakeComment = ({ userInfo }) => {
 
   return (
     <div className='grid justify-center'>
+
       <div className="m-8 h-screen max-w-md justify-center">
         <h1 className="text-white w-full text-center p-5 text-2xl font-bold">
           Make a Comment!
@@ -87,6 +88,7 @@ const MakeComment = ({ userInfo }) => {
                       />
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
