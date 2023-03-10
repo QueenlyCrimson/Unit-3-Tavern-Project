@@ -6,13 +6,13 @@ function ProfilePage({ handleLogOut, userInfo }) {
 
     let navigate = useNavigate()
 
-    const [userData, setUserData] = useState({})
-    console.log(userData)
+   const [userData, setUserData] = useState({})
+    console.log(userInfo) 
 
-    const GetUser = async () => {
-        const res = await Client.get(`/user/get_user/${userInfo.id}`)
-        setUserData(res)
-    }
+    // const GetUser = async () => {
+    //     const res = await Client.get(`/user/get_user/${userInfo.id}`)
+    //     setUserData(res)
+    // }
 
     const GetPostsByUser = async () => {
         try {
@@ -37,7 +37,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
     }
 
     useEffect(() => {
-        GetUser()
+        // GetUser()
         handlePosts()
         GetPostsByUser()
     }, [userInfo])
@@ -62,9 +62,9 @@ function ProfilePage({ handleLogOut, userInfo }) {
                     <div className='p-3 text-gray col-span-1'>
 
                     </div>
-                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userData.data.name}<span className='font-light text-[#6B7082] ml-2'>{userData.data.userName}
+                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userInfo.name}<span className='font-light text-[#6B7082] ml-2'>{userInfo.userName}
                         <div>
-                            <a href={`/updateProfile/${userData.id}`}>
+                            <a href={`/updateProfile/${userInfo.id}`}>
                                 <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>
                                     Edit Profile
                                 </button>
