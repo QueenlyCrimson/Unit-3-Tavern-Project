@@ -6,8 +6,9 @@ import { CreateComment } from '../services/PostServices'
 
 const MakeComment = ({ user }) => {
 let {postId} =useParams()
-  const userName = localStorage.getItem('userName')
-  const userId = localStorage.getItem('userId')
+const userName = localStorage.getItem('userName')
+const userId = localStorage.getItem('userId')
+console.log(userId)
 
   let navigate = useNavigate()
   let initialState = {
