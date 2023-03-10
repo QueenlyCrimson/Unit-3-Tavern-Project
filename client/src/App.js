@@ -51,7 +51,7 @@ function App() {
           <Route path="feed" element={<Feed user={user} />} />
           <Route index element={<Home />} />
           <Route path="updateProfile" element={<UpdateProfile />} />
-          <Route path="profile" element={<ProfilePage user={user} />} />
+          <Route path="profile" element={<ProfilePage user={user} handleLogOut={handleLogOut} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="feed/postComments/:id" element={<ViewComments />} />
           <Route

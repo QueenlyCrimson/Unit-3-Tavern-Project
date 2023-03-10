@@ -74,7 +74,6 @@ const ViewComments = () => {
                   </div>
                 <button  type="button"
                 onClick={(event) => deleteComment(event, comment.id)}><BsFillTrashFill id={comment.id} className='hover:fill-orange-500' size={25}/></button>
-
                 </div>
               </div>
 
