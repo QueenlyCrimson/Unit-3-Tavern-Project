@@ -26,9 +26,9 @@ function App() {
   const navigate = useNavigate()
 
   const checkToken = async () => {
-    const user = await CheckSession()
-    // setUser(user)
-    console.log(user)
+    const userCS = await CheckSession()
+    setUser(userCS)
+    console.log(userCS)
   }
 
   useEffect(() => {
@@ -37,6 +37,9 @@ function App() {
       checkToken()
     }
   }, [])
+
+
+console.log(localStorage)
 
   const handleLogOut = () => {
     setUser(null)
