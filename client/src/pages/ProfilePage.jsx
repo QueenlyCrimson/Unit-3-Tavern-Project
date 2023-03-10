@@ -6,14 +6,6 @@ function ProfilePage({ handleLogOut, userInfo }) {
 
     let navigate = useNavigate()
 
-   const [userData, setUserData] = useState({})
-    console.log(userInfo) 
-
-    // const GetUser = async () => {
-    //     const res = await Client.get(`/user/get_user/${userInfo.id}`)
-    //     setUserData(res)
-    // }
-
     const GetPostsByUser = async () => {
         try {
             const userId = userInfo.id
@@ -37,7 +29,6 @@ function ProfilePage({ handleLogOut, userInfo }) {
     }
 
     useEffect(() => {
-        // GetUser()
         handlePosts()
         GetPostsByUser()
     }, [userInfo])
