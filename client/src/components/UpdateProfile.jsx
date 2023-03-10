@@ -4,9 +4,10 @@ import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import Client from "../services/api"
 
-const UpdateProfile = () => {
+const UpdateProfile = ({ userInfo }) => {
 
-  let userId = localStorage.getItem('userId')
+
+  const userId = userInfo.data.id
 
   let navigate = useNavigate()
 
