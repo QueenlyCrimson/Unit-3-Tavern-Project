@@ -1,3 +1,4 @@
+
 import { Link, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import React from 'react'
@@ -8,9 +9,10 @@ const MakeComment = ({ userInfo }) => {
   const userName = userInfo.data.userName
   const userId = userInfo.data.id
 
+
   let navigate = useNavigate()
   let initialState = {
-    userName: userName,
+    name: userId,
     content: '',
     userId: userId,
   }
@@ -19,13 +21,16 @@ const MakeComment = ({ userInfo }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+
     await CreateComment({
       userName: userName,
       content: formValues.content,
       userId: userId,
+      postId: postId
     })
     setFormValues(initialState)
     navigate('/feed')
+
 
   }
 
@@ -84,26 +89,27 @@ const MakeComment = ({ userInfo }) => {
             </div>
 
 
-            <div className="flex  py-3 justify-center">
-              <Link to={'/'}>
-                <button
-                  type="button"
-                  className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-                >
-                  Cancel
-                </button>
-              </Link>
-              <button
-                type="submit"
-                className="ml-3 rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
-                onClick={handleSubmit}
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+
+        <div className="flex  py-3 justify-center">
+          <Link to='/'>
+            <button
+              type="button"
+              className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            >
+              Cancel
+            </button>
+          </Link>
+          <button
+            type="submit"
+            className="ml-3 rounded-md border border-transparent bg-orange-500 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
+        </div>
+      </form>
+
     </div>
   )
 }

@@ -15,8 +15,10 @@ function ProfilePage({ user, handleLogOut, userInfo }) {
 
     const GetPostsByUser = async () => {
         try {
-            const res = await Client.get(`post/by_user_id/41`)
-            setPosts(res.data)
+        const userId = localStorage.getItem('userId')
+          const res = await Client.get(`post/by_user_id/10`)
+          console.log(res.data)
+          setPosts(res.data)
         } catch (error) {
             throw error
         }
