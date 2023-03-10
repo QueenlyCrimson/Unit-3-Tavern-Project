@@ -18,7 +18,7 @@ import MakeComment from './components/MakeComment'
 import Client from './services/api'
 
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   const [userInfo,setUserInfo] = useState({})
 
   console.log(userInfo)
@@ -28,7 +28,6 @@ function App() {
   const checkToken = async () => {
     const userCS = await CheckSession()
     setUser(userCS)
-    console.log(userCS)
   }
 
   useEffect(() => {
@@ -38,8 +37,6 @@ function App() {
     }
   }, [])
 
-
-console.log(localStorage)
 
   const handleLogOut = () => {
     setUser(null)

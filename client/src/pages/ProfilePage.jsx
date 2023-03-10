@@ -3,21 +3,22 @@ import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
 function ProfilePage({ handleLogOut, userInfo }) {
+
     let navigate = useNavigate()
 
     const [userData, setUserData] = useState({})
-
+    console.log(userData)
 
     const GetUser = async () => {
-        const res = await Client.get(`/user/get_user/${userInfo.data.id}`)
-        setUserData(res.data)
+        const res = await Client.get(`/user/get_user/${userInfo.id}`)
+        setUserData(res)
     }
 
     const GetPostsByUser = async () => {
         try {
-            const userId = userInfo.data.id
+            const userId = userInfo.id
             const res = await Client.get(`post/by_user_id/${userId}`)
-            console.log(res.data)
+            console.log(res)
             setPosts(res.data)
         } catch (error) {
             throw error
@@ -26,7 +27,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
     const handleDelete = async (event) => {
         event.preventDefault()
         handleLogOut()
-        await Client.delete(`user/delete_user/${userInfo.data.id}`)
+        await Client.delete(`user/delete_user/${userInfo.id}`)
         alert('users account was deleted, please make another user!')
         navigate("/makeProfile")
     }
@@ -61,7 +62,7 @@ function ProfilePage({ handleLogOut, userInfo }) {
                     <div className='p-3 text-gray col-span-1'>
 
                     </div>
-                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userData.name}<span className='font-light text-[#6B7082] ml-2'>{userData.userName}
+                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userData.data.name}<span className='font-light text-[#6B7082] ml-2'>{userData.data.userName}
                         <div>
                             <a href={`/updateProfile/${userData.id}`}>
                                 <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>

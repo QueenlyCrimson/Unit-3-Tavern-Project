@@ -22,7 +22,8 @@ const SignIn = ({ setUser, setUserInfo }) => {
     // await getUserInfo(payload)
     setUser(payload)
     const res = await Client.get(`/user/get_user/by_email/${payload.email}`)
-    setUserInfo(res)
+    console.log(res.data)
+    setUserInfo(res.data)
     navigate('/feed')
   }
 
