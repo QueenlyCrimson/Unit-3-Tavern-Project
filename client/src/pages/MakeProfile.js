@@ -66,7 +66,7 @@ const MakeProfile = () => {
                       <input
                         type="text"
                         id="img"
-                        name="img"
+                        name="profilePic"
                         rows={3}
                         onChange={handleChange}
                         onSubmit={handleSubmit}
