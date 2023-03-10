@@ -8,8 +8,8 @@ const Description = () => {
         <img className='q-[500px] mx-auto my-4' src={Logo} alt="/"/> 
         <div className='flex flex-col justify-center'>
           <p className='text-[#e57626] font-bold'>THE ULTIMATE SOCIAL MEDIA APP</p>
-          <h1 className='md:text-4xl sm:text-3xl text-3xl font-bold py-2'>Connect with Like-Minded Individuals Across the World </h1>
-          <p>Whether you're a foodie, gamer, fitness enthusiast, or fashionista, Tavern has something for everyone. With its user-friendly interface, Tavern allows you to create a personalized profile that showcases your unique personality and interests.</p>
+          <h1 className='md:text-4xl sm:text-3xl text-3xl font-bold py-2 text-white'>Connect with Like-Minded Individuals Across the World </h1>
+          <p className='text-gray-500'>Whether you're a foodie, gamer, fitness enthusiast, or fashionista, Tavern has something for everyone. With its user-friendly interface, Tavern allows you to create a personalized profile that showcases your unique personality and interests.</p>
           <button ahref="/makeProfile" className='bg-[#e57626] w-[200px] rounded-md my-6 mx-auto md:mx-0 py-3 text-black'>Register Now!</button>
         </div>
       </div>
