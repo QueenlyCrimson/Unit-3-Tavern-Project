@@ -28,7 +28,6 @@ function App() {
   const checkToken = async () => {
     const userCS = await CheckSession()
     setUser(userCS)
-    console.log(userCS)
   }
 
   useEffect(() => {
@@ -38,8 +37,6 @@ function App() {
     }
   }, [])
 
-
-console.log(localStorage)
 
   const handleLogOut = () => {
     setUser(null)
