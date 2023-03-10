@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-function ProfilePage({ user, handleLogOut }) {
+function ProfilePage({ user, handleLogOut, userInfo }) {
     let navigate = useNavigate()
 
-    const [userInfo, setUserInfo] = useState({})
+    const [userData, setUserData] = useState({})
 
-    const userId = localStorage.getItem('userId')
 
     const GetUser = async () => {
-        const res = await Client.get(`/user/get_user/${userId}`)
-        setUserInfo(res.data)
+        const res = await Client.get(`/user/get_user/${userInfo.data.id}`)
+        setUserData(res.data)
     }
 
     const GetPostsByUser = async () => {
@@ -24,7 +23,7 @@ function ProfilePage({ user, handleLogOut }) {
     }
     const handleDelete = async (event) => {
         event.preventDefault()
-        await Client.delete(`user/delete_user/${userId}`)
+        await Client.delete(`user/delete_user/${userInfo.data.id}`)
         alert('users account was deleted, please make another user!')
         handleLogOut()
         navigate("/makeProfile")
@@ -60,7 +59,7 @@ function ProfilePage({ user, handleLogOut }) {
                     <div className='p-3 text-gray col-span-1'>
 
                     </div>
-                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userInfo.name}<span className='font-light text-[#6B7082] ml-2'>{userInfo.userName}
+                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userData.name}<span className='font-light text-[#6B7082] ml-2'>{userData.userName}
                         <div>
                             < a href='/updateProfile'>
                                 <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>

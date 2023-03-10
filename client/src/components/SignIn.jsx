@@ -2,8 +2,9 @@ import { LockClosedIcon } from '@heroicons/react/20/solid'
 import { SignInUser, getUserInfo } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import Client from '../services/api'
 
-const SignIn = (props) => {
+const SignIn = ({ setUser, setUserInfo }) => {
 
   let initialState = {
     email: '',
@@ -18,15 +19,14 @@ const SignIn = (props) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
     setFormValues({ email: '', password: '' })
-    await getUserInfo(payload)
-    props.setUser(payload)
+    // await getUserInfo(payload)
+    setUser(payload)
+    const res = await Client.get(`/user/get_user/by_email/${payload.email}`)
+    setUserInfo(res)
     navigate('/feed')
   }
 
-  // const sendUserInfo = async () => {
-  //   const data = await getUserInfo(user)
-  // }
-  // sendUserInfo()
+
 
   const handleChange = (e) => {
     const { name, value } = e.target

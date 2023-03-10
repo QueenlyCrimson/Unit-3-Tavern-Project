@@ -15,9 +15,11 @@ import { CheckSession, getUserInfo } from './services/Auth'
 import ViewComments from './components/ViewComments'
 import ForgotPassword from './pages/ForgotPassword'
 import MakeComment from './components/MakeComment'
+import Client from './services/api'
 
 function App() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState({})
+  const [userInfo,setUserInfo] = useState({})
 
   const navigate = useNavigate()
 
@@ -45,16 +47,16 @@ function App() {
       <main>
         <Routes>
           <Route path="makeProfile" element={<MakeProfile />} />
-          <Route path="makePost" element={<MakePost user={user} />} />
-          <Route path="signIn" element={<SignIn setUser={setUser} />} />
+          <Route path="makePost" element={<MakePost userInfo={userInfo} />} />
+          <Route path="signIn" element={<SignIn setUser={setUser} setUserInfo={setUserInfo} />} />
           <Route path="about" element={<About />} />
           <Route path="feed" element={<Feed user={user} />} />
           <Route index element={<Home />} />
-          <Route path="updateProfile" element={<UpdateProfile />} />
-          <Route path="profile" element={<ProfilePage user={user} handleLogOut={handleLogOut} />} />
+          <Route path="updateProfile" element={<UpdateProfile userInfo={userInfo}/>} />
+          <Route path="profile" element={<ProfilePage userInfo={userInfo} user={user} handleLogOut={handleLogOut} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="feed/postComments/:id" element={<ViewComments />} />
-          <Route path="makeComment" element={<MakeComment user={user} />} />
+          <Route path="makeComment" element={<MakeComment userInfo={userInfo} />} />
           {/* <Route path="sneakers/:id" element={<SneakerDetails />} /> */}
         </Routes>
       </main>

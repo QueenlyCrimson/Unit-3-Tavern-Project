@@ -10,16 +10,6 @@ export const SignInUser = async (data) => {
     throw error;
   }
 };
-export const getUserInfo = async(data)=>{
-  try {
-    const res = await Client.get(`/user/get_user/by_email/${data.email}`)
-    localStorage.setItem('userId', res.data.id)
-    localStorage.setItem('userName', res.data.userName)
-    localStorage.setItem('name', res.data.name)
-  } catch (error) {
-    throw error
-  }
-}
 
 export const RegisterUser = async (data) => {
   try {
@@ -32,7 +22,6 @@ export const RegisterUser = async (data) => {
 
 export const UpdateUser = async(data)=>{
   try {
-    console.log(data.email)
    await Client.put(`user/update_user/by_id/${data.userId}`,data)
   } catch (error) {
     throw error
