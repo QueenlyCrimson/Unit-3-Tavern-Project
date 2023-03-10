@@ -4,9 +4,10 @@ import React from 'react'
 import { CreatePost } from '../services/PostServices'
 
 const MakePost = ({ userInfo }) => {
-
-  const userName = userInfo.data.userName
-  const userId = userInfo.data.id
+  // console.log(userInfo)
+  const userName = userInfo.userName
+  console.log(userName)
+  const userId = userInfo.id
 
   let navigate = useNavigate()
   let initialState = {
@@ -51,7 +52,7 @@ const MakePost = ({ userInfo }) => {
             <div className="grid gap-6">
               <div className="md:col-span-1">
                 <h3 className="text-lg font-medium leading-6 text-gray-900">
-                  Hey {formValues.userName},
+                  Hey {userName},
                 </h3>
                 <p className="mt-1 text-sm text-gray-500">
                   Would you like to make a post?
