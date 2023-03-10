@@ -1,15 +1,18 @@
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import { useState, useEffect} from 'react'
 
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import React from 'react'
 import { CreateComment } from '../services/PostServices'
 
-const MakeComment = ({ user }) => {
-let {postId} =useParams()
-const userName = localStorage.getItem('userName')
-console.log(userName)
-const userId = localStorage.getItem('userId')
-console.log(userId)
+
+const MakeComment = ({ userInfo }) => {
+
+
+  let {postId} = useParams()
+  const userName = userInfo.data.userName
+  const userId = userInfo.data.id
+
+
 
   let navigate = useNavigate()
   let initialState = {
@@ -23,28 +26,31 @@ console.log(userId)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-      await CreateComment({
-        name: userId,
-        content: formValues.content,
-        userId: userId,
-        postId: postId
-      })
-      setFormValues(initialState)
-      navigate('/feed')
-    
+
+    await CreateComment({
+      userName: userName,
+      content: formValues.content,
+      userId: userId,
+      postId: postId
+    })
+    setFormValues(initialState)
+    navigate('/feed')
+
+
   }
-  
-  
+
+
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value })
   }
-  useEffect(()=>{
-    
-  },[])
+  useEffect(() => {
+
+  }, [])
 
 
-  return(
+  return (
     <div className='grid justify-center'>
+
     <div className="m-8 h-screen max-w-md justify-center">
       <h1 className="text-white w-full text-center p-5 text-2xl font-bold">
         Make a Comment!
@@ -54,7 +60,7 @@ console.log(userId)
           <div className="grid gap-6">
             <div className="md:col-span-1">
               <h3 className="text-lg font-medium leading-6 text-gray-900">
-                Hey {formValues.userId},
+                Hey {formValues.userName},
               </h3>
               <p className="mt-1 text-sm text-gray-500">
                 Would you like to make a comment on this post?
@@ -82,11 +88,11 @@ console.log(userId)
                     placeholder="Whats on your mind!"
                     defaultValue={''}
                   />
+
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+
 
 
         <div className="flex  py-3 justify-center">
@@ -109,8 +115,8 @@ console.log(userId)
         </div>
       </form>
     </div>
-  </div>
-)
+    </div>
+  )
 }
 
 export default MakeComment
