@@ -6,6 +6,7 @@ import Client from "../services/api"
 
 const UpdateProfile = ({ userInfo }) => {
 
+  
 
   const userId = userInfo.data.id
 

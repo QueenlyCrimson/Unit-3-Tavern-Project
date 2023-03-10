@@ -25,9 +25,9 @@ function ProfilePage({ user, handleLogOut, userInfo }) {
     }
     const handleDelete = async (event) => {
         event.preventDefault()
+        handleLogOut()
         await Client.delete(`user/delete_user/${userInfo.data.id}`)
         alert('users account was deleted, please make another user!')
-        handleLogOut()
         navigate("/makeProfile")
     }
     const [posts, setPosts] = useState([])
