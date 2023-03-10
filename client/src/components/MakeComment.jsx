@@ -10,8 +10,6 @@ const MakeComment = ({ userInfo }) => {
 
   let { postId } = useParams()
   const userName = userInfo.data
-  console.log(userName.userName)
-
   const userId = userInfo.data.id
 
 
