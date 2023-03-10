@@ -1,12 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom'
-import { useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import React from 'react'
 import { CreatePost } from '../services/PostServices'
 
-const MakePost = ({ user }) => {
+const MakePost = ({ userInfo }) => {
 
-  const userName = localStorage.getItem('userName')
-  const userId = localStorage.getItem('userId')
+  const userName = userInfo.data.userName
+  const userId = userInfo.data.id
 
   let navigate = useNavigate()
   let initialState = {
@@ -20,24 +20,24 @@ const MakePost = ({ user }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-      await CreatePost({
-        userName: userName,
-        content: formValues.content,
-        img: formValues.img,
-        userId: userId
-      })
-      setFormValues(initialState)
-      navigate('/feed')
-    
+    await CreatePost({
+      userName: userName,
+      content: formValues.content,
+      img: formValues.img,
+      userId: userId
+    })
+    setFormValues(initialState)
+    navigate('/feed')
+
   }
-  
-  
+
+
   const handleChange = (event) => {
     setFormValues({ ...formValues, [event.target.name]: event.target.value })
   }
-  useEffect(()=>{
-    
-  },[])
+  useEffect(() => {
+
+  }, [])
 
 
   return (
