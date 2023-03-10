@@ -1,17 +1,18 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect} from 'react'
+
 import React from 'react'
 import { CreateComment } from '../services/PostServices'
 
 const MakeComment = ({ user }) => {
-
-  const userName = localStorage.getItem('userName')
-  const userId = localStorage.getItem('userId')
-  const postId = localStorage.getItem('postId')
+let {postId} =useParams()
+const userName = localStorage.getItem('userName')
+const userId = localStorage.getItem('userId')
+console.log(userId)
 
   let navigate = useNavigate()
   let initialState = {
-    userName: userName,
+    name: userId,
     content: '',
     userId: userId,
     postId: postId
@@ -22,7 +23,7 @@ const MakeComment = ({ user }) => {
   const handleSubmit = async (event) => {
     event.preventDefault()
       await CreateComment({
-        userName: userName,
+        name: userId,
         content: formValues.content,
         userId: userId,
         postId: postId
@@ -88,7 +89,7 @@ const MakeComment = ({ user }) => {
 
 
         <div className="flex  py-3 justify-center">
-          <Link to={'/'}>
+          <Link to='/'>
             <button
               type="button"
               className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"

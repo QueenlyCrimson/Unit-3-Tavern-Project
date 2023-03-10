@@ -54,7 +54,10 @@ function App() {
           <Route path="profile" element={<ProfilePage user={user} handleLogOut={handleLogOut} />} />
           <Route path="forgotPassword" element={<ForgotPassword />} />
           <Route path="feed/postComments/:id" element={<ViewComments />} />
-          <Route path="makeComment" element={<MakeComment user={user} />} />
+          <Route
+            path="makeComment/:postId"
+            element={<MakeComment user={user} />}
+          />
           {/* <Route path="sneakers/:id" element={<SneakerDetails />} /> */}
         </Routes>
       </main>
