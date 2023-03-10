@@ -18,7 +18,7 @@ import MakeComment from './components/MakeComment'
 import Client from './services/api'
 
 function App() {
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(null)
   const [userInfo,setUserInfo] = useState({})
 
   console.log(userInfo)

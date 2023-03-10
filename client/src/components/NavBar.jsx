@@ -22,7 +22,6 @@ const NavBar = ({ user, handleLogOut }) => {
           </ul>
         </div>
       </nav>
-
     )
   }
 
@@ -43,9 +42,9 @@ const NavBar = ({ user, handleLogOut }) => {
     </nav>
   )
 
-  const handleNav = () => {
-    setNav(!nav)
-  }
+  // const handleNav = () => {
+  //   setNav(!nav)
+  // }
   return (
     <header>
       {user ? userOptions : publicOptions}
