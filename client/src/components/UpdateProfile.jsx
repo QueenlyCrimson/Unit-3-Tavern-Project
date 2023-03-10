@@ -1,14 +1,13 @@
 import React from "react"
 import { UpdateUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState, useEffect } from "react"
 import Client from "../services/api"
 
-const UpdateProfile = ({ userInfo }) => {
+const UpdateProfile = () => {
 
-  
+  let { id } = useParams()
 
-  const userId = userInfo.data.id
 
   let navigate = useNavigate()
 
@@ -24,9 +23,11 @@ const UpdateProfile = ({ userInfo }) => {
   const [formValues, setFormValues] = useState(initialState)
 
   const getUserById = async () => {
-    const res = await Client.get(`/user/get_user/${userId}`)
+    const res = await Client.get(`/user/get_user/${id}`)
+    console.log(res.data)
     setFormValues(res.data)
   }
+
   useEffect(() => {
     getUserById()
   }, [])
@@ -37,7 +38,7 @@ const UpdateProfile = ({ userInfo }) => {
       name: formValues.name,
       userName: formValues.userName,
       email: formValues.email,
-      userId: userId
+      userId: id
     }
     await UpdateUser(payload)
     setFormValues(initialState)
