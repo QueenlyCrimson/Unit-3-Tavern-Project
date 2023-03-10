@@ -67,6 +67,7 @@ const MakeComment = ({ userInfo }) => {
               </p>
             </div>
             <div className="mt-5 md:col-span-2 md:mt-0">
+
               <div className="grid gap-6">
                 <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                 
@@ -112,10 +113,14 @@ const MakeComment = ({ userInfo }) => {
             Submit
           </button>
         </div>
-        </div>
-      </form>
+      </div>
+
+
+      </div>
     </div>
-    </div>
+  </form>
+  </div>
+</div>
   )
 }
 

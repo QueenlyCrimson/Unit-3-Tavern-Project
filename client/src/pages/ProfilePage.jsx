@@ -2,21 +2,22 @@ import { useEffect, useState } from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
-function ProfilePage({ user, handleLogOut, userInfo }) {
+function ProfilePage({ user, handleLogOut }) {
     let navigate = useNavigate()
 
-    const [userData, setUserData] = useState({})
+    const [userInfo, setUserInfo] = useState({})
 
+    const userId = localStorage.getItem('userId')
 
     const GetUser = async () => {
-        const res = await Client.get(`/user/get_user/${userInfo.data.id}`)
-        setUserData(res.data)
+        const res = await Client.get(`/user/get_user/${userId}`)
+        setUserInfo(res.data)
     }
 
     const GetPostsByUser = async () => {
         try {
         const userId = localStorage.getItem('userId')
-          const res = await Client.get(`post/by_user_id/${userId}`)
+          const res = await Client.get('post/by_user_id/20')
           console.log(res.data)
           setPosts(res.data)
         } catch (error) {
@@ -25,9 +26,9 @@ function ProfilePage({ user, handleLogOut, userInfo }) {
     }
     const handleDelete = async (event) => {
         event.preventDefault()
-        handleLogOut()
-        await Client.delete(`user/delete_user/${userInfo.data.id}`)
+        await Client.delete(`user/delete_user/${userId}`)
         alert('users account was deleted, please make another user!')
+        handleLogOut()
         navigate("/makeProfile")
     }
     const [posts, setPosts] = useState([])
@@ -61,7 +62,7 @@ function ProfilePage({ user, handleLogOut, userInfo }) {
                     <div className='p-3 text-gray col-span-1'>
 
                     </div>
-                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userData.name}<span className='font-light text-[#6B7082] ml-2'>{userData.userName}
+                    <h2 className='text-center text-[18px] font-main font-bold mt-[12px]'>{userInfo.name}<span className='font-light text-[#6B7082] ml-2'>{userInfo.userName}
                         <div>
                             < a href='/updateProfile'>
                                 <button className='bg-white ml-3 text-gray-800 px-2 border border-gray-800 rounded'>

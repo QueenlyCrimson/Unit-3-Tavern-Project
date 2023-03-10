@@ -8,9 +8,9 @@ const Hero = () => {
     <div>
       <div className='max-w-[800px] mt-[96px] w-full h-screen mx-auto text-center flex flex-col'>
         <p className='text-[#e57626] font-bold p-2'>THE ULTIMATE SOCIAL MEDIA APP</p>
-        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6'>Connect with Tavern</h1>
+        <h1 className='md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 text-white'>Connect with Tavern</h1>
         <div className='flex justify-center'>
-          <p className='md:text-3xl sm:text-2xl text-xl font-bold'>For everyone whether you're a  </p>
+          <p className='md:text-3xl sm:text-2xl text-xl font-bold text-white'>For everyone whether you're a  </p>
           <Typed className='text-[#e57626] md:text-3xl sm:text-2xl text-xl font-bold md:pl-4 pl-2'
             strings={[
               'Foodie',
