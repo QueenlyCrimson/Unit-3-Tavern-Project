@@ -88,7 +88,7 @@ const ViewComments = () => {
 
 
 
-        <AddComment />
+        
         </div>
 
 
